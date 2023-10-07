@@ -1,0 +1,835 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C12AD05A04006E3846 /* AppDelegate.swift */; };
+		3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */; };
+		3EFB49CB2AD05A06006E3846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFB49CA2AD05A06006E3846 /* Assets.xcassets */; };
+		3EFB49CE2AD05A06006E3846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFB49CC2AD05A06006E3846 /* LaunchScreen.storyboard */; };
+		3EFB49D92AD05A06006E3846 /* Eyebrow_SimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49D82AD05A06006E3846 /* Eyebrow_SimulatorTests.swift */; };
+		3EFB49E32AD05A06006E3846 /* Eyebrow_SimulatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49E22AD05A06006E3846 /* Eyebrow_SimulatorUITests.swift */; };
+		3EFB49E52AD05A06006E3846 /* Eyebrow_SimulatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49E42AD05A06006E3846 /* Eyebrow_SimulatorUITestsLaunchTests.swift */; };
+		3EFB4A022AD05B32006E3846 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A012AD05B32006E3846 /* CameraViewController.swift */; };
+		3EFB4A042AD05B49006E3846 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A032AD05B49006E3846 /* CameraViewModel.swift */; };
+		3EFB4A062AD05B52006E3846 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A052AD05B52006E3846 /* CameraView.swift */; };
+		3EFB4A082AD05B5F006E3846 /* CameraResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A072AD05B5F006E3846 /* CameraResultViewController.swift */; };
+		3EFB4A0A2AD05B78006E3846 /* CameraResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A092AD05B78006E3846 /* CameraResultView.swift */; };
+		3EFB4A0C2AD05B7C006E3846 /* CameraResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A0B2AD05B7C006E3846 /* CameraResultViewModel.swift */; };
+		3EFB4A0E2AD05B8C006E3846 /* SimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A0D2AD05B8C006E3846 /* SimulatorViewController.swift */; };
+		3EFB4A102AD05B90006E3846 /* SimulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A0F2AD05B90006E3846 /* SimulatorView.swift */; };
+		3EFB4A122AD05B95006E3846 /* SimulatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A112AD05B95006E3846 /* SimulatorViewModel.swift */; };
+		3EFB4A172AD05BC0006E3846 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFB4A162AD05BC0006E3846 /* Colors.xcassets */; };
+		3EFB4A1C2AD05BFF006E3846 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */; };
+		3EFB4A1E2AD05C84006E3846 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A1D2AD05C84006E3846 /* ViewModelType.swift */; };
+		3EFB4A242AD05D62006E3846 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3EFB4A232AD05D62006E3846 /* SnapKit */; };
+		3EFB4A292AD05FC6006E3846 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A282AD05FC6006E3846 /* BaseViewController.swift */; };
+		3EFB4A2D2AD063F8006E3846 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A2C2AD063F8006E3846 /* ViewControllerType.swift */; };
+		3EFB4A2F2AD06417006E3846 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A2E2AD06417006E3846 /* ViewType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3EFB49D52AD05A06006E3846 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EFB49B62AD05A04006E3846 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EFB49BD2AD05A04006E3846;
+			remoteInfo = "Eyebrow-Simulator";
+		};
+		3EFB49DF2AD05A06006E3846 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EFB49B62AD05A04006E3846 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EFB49BD2AD05A04006E3846;
+			remoteInfo = "Eyebrow-Simulator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3EFB49BE2AD05A04006E3846 /* Eyebrow-Simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eyebrow-Simulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EFB49C12AD05A04006E3846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3EFB49CA2AD05A06006E3846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EFB49CD2AD05A06006E3846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3EFB49CF2AD05A06006E3846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EFB49D42AD05A06006E3846 /* Eyebrow-SimulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Eyebrow-SimulatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EFB49D82AD05A06006E3846 /* Eyebrow_SimulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eyebrow_SimulatorTests.swift; sourceTree = "<group>"; };
+		3EFB49DE2AD05A06006E3846 /* Eyebrow-SimulatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Eyebrow-SimulatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EFB49E22AD05A06006E3846 /* Eyebrow_SimulatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eyebrow_SimulatorUITests.swift; sourceTree = "<group>"; };
+		3EFB49E42AD05A06006E3846 /* Eyebrow_SimulatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eyebrow_SimulatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3EFB4A012AD05B32006E3846 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		3EFB4A032AD05B49006E3846 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		3EFB4A052AD05B52006E3846 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3EFB4A072AD05B5F006E3846 /* CameraResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultViewController.swift; sourceTree = "<group>"; };
+		3EFB4A092AD05B78006E3846 /* CameraResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultView.swift; sourceTree = "<group>"; };
+		3EFB4A0B2AD05B7C006E3846 /* CameraResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultViewModel.swift; sourceTree = "<group>"; };
+		3EFB4A0D2AD05B8C006E3846 /* SimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorViewController.swift; sourceTree = "<group>"; };
+		3EFB4A0F2AD05B90006E3846 /* SimulatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorView.swift; sourceTree = "<group>"; };
+		3EFB4A112AD05B95006E3846 /* SimulatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorViewModel.swift; sourceTree = "<group>"; };
+		3EFB4A162AD05BC0006E3846 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		3EFB4A1D2AD05C84006E3846 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		3EFB4A282AD05FC6006E3846 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3EFB4A2C2AD063F8006E3846 /* ViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
+		3EFB4A2E2AD06417006E3846 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3EFB49BB2AD05A04006E3846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFB4A242AD05D62006E3846 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFB49D12AD05A06006E3846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFB49DB2AD05A06006E3846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3EFB49B52AD05A04006E3846 = {
+			isa = PBXGroup;
+			children = (
+				3EFB49C02AD05A04006E3846 /* Eyebrow-Simulator */,
+				3EFB49D72AD05A06006E3846 /* Eyebrow-SimulatorTests */,
+				3EFB49E12AD05A06006E3846 /* Eyebrow-SimulatorUITests */,
+				3EFB49BF2AD05A04006E3846 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EFB49BF2AD05A04006E3846 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB49BE2AD05A04006E3846 /* Eyebrow-Simulator.app */,
+				3EFB49D42AD05A06006E3846 /* Eyebrow-SimulatorTests.xctest */,
+				3EFB49DE2AD05A06006E3846 /* Eyebrow-SimulatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EFB49C02AD05A04006E3846 /* Eyebrow-Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB49F42AD05A6F006E3846 /* App */,
+				3EFB49F32AD05A6A006E3846 /* Resource */,
+				3EFB49F22AD05A65006E3846 /* Global */,
+				3EFB49F12AD05A5E006E3846 /* Feature */,
+			);
+			path = "Eyebrow-Simulator";
+			sourceTree = "<group>";
+		};
+		3EFB49D72AD05A06006E3846 /* Eyebrow-SimulatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB49D82AD05A06006E3846 /* Eyebrow_SimulatorTests.swift */,
+			);
+			path = "Eyebrow-SimulatorTests";
+			sourceTree = "<group>";
+		};
+		3EFB49E12AD05A06006E3846 /* Eyebrow-SimulatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB49E22AD05A06006E3846 /* Eyebrow_SimulatorUITests.swift */,
+				3EFB49E42AD05A06006E3846 /* Eyebrow_SimulatorUITestsLaunchTests.swift */,
+			);
+			path = "Eyebrow-SimulatorUITests";
+			sourceTree = "<group>";
+		};
+		3EFB49F12AD05A5E006E3846 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB49F92AD05B0C006E3846 /* Camera */,
+				3EFB49F82AD05B06006E3846 /* CameraResult */,
+				3EFB49F72AD05B00006E3846 /* Simulator */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		3EFB49F22AD05A65006E3846 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A272AD05FBE006E3846 /* Base */,
+				3EFB4A142AD05BAA006E3846 /* Protocols */,
+				3EFB4A132AD05BA6006E3846 /* Extensions */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		3EFB49F32AD05A6A006E3846 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB49CF2AD05A06006E3846 /* Info.plist */,
+				3EFB49CA2AD05A06006E3846 /* Assets.xcassets */,
+				3EFB4A162AD05BC0006E3846 /* Colors.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3EFB49F42AD05A6F006E3846 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB49CC2AD05A06006E3846 /* LaunchScreen.storyboard */,
+				3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */,
+				3EFB49C12AD05A04006E3846 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3EFB49F72AD05B00006E3846 /* Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A1A2AD05BE2006E3846 /* ViewController */,
+				3EFB49FB2AD05B13006E3846 /* ViewModel */,
+				3EFB49FA2AD05B0F006E3846 /* View */,
+			);
+			path = Simulator;
+			sourceTree = "<group>";
+		};
+		3EFB49F82AD05B06006E3846 /* CameraResult */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A182AD05BD4006E3846 /* ViewController */,
+				3EFB49FD2AD05B17006E3846 /* ViewModel */,
+				3EFB49FC2AD05B15006E3846 /* View */,
+			);
+			path = CameraResult;
+			sourceTree = "<group>";
+		};
+		3EFB49F92AD05B0C006E3846 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A192AD05BDC006E3846 /* ViewController */,
+				3EFB49FF2AD05B1C006E3846 /* VewModel */,
+				3EFB49FE2AD05B1A006E3846 /* View */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		3EFB49FA2AD05B0F006E3846 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A0F2AD05B90006E3846 /* SimulatorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3EFB49FB2AD05B13006E3846 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A112AD05B95006E3846 /* SimulatorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3EFB49FC2AD05B15006E3846 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A092AD05B78006E3846 /* CameraResultView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3EFB49FD2AD05B17006E3846 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A0B2AD05B7C006E3846 /* CameraResultViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3EFB49FE2AD05B1A006E3846 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A052AD05B52006E3846 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3EFB49FF2AD05B1C006E3846 /* VewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A032AD05B49006E3846 /* CameraViewModel.swift */,
+			);
+			path = VewModel;
+			sourceTree = "<group>";
+		};
+		3EFB4A132AD05BA6006E3846 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3EFB4A142AD05BAA006E3846 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A2C2AD063F8006E3846 /* ViewControllerType.swift */,
+				3EFB4A1D2AD05C84006E3846 /* ViewModelType.swift */,
+				3EFB4A2E2AD06417006E3846 /* ViewType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3EFB4A182AD05BD4006E3846 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A072AD05B5F006E3846 /* CameraResultViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3EFB4A192AD05BDC006E3846 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A012AD05B32006E3846 /* CameraViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3EFB4A1A2AD05BE2006E3846 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A0D2AD05B8C006E3846 /* SimulatorViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3EFB4A272AD05FBE006E3846 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A282AD05FC6006E3846 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3EFB49BD2AD05A04006E3846 /* Eyebrow-Simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EFB49E82AD05A06006E3846 /* Build configuration list for PBXNativeTarget "Eyebrow-Simulator" */;
+			buildPhases = (
+				3EFB49BA2AD05A04006E3846 /* Sources */,
+				3EFB49BB2AD05A04006E3846 /* Frameworks */,
+				3EFB49BC2AD05A04006E3846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Eyebrow-Simulator";
+			packageProductDependencies = (
+				3EFB4A232AD05D62006E3846 /* SnapKit */,
+			);
+			productName = "Eyebrow-Simulator";
+			productReference = 3EFB49BE2AD05A04006E3846 /* Eyebrow-Simulator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3EFB49D32AD05A06006E3846 /* Eyebrow-SimulatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EFB49EB2AD05A06006E3846 /* Build configuration list for PBXNativeTarget "Eyebrow-SimulatorTests" */;
+			buildPhases = (
+				3EFB49D02AD05A06006E3846 /* Sources */,
+				3EFB49D12AD05A06006E3846 /* Frameworks */,
+				3EFB49D22AD05A06006E3846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EFB49D62AD05A06006E3846 /* PBXTargetDependency */,
+			);
+			name = "Eyebrow-SimulatorTests";
+			productName = "Eyebrow-SimulatorTests";
+			productReference = 3EFB49D42AD05A06006E3846 /* Eyebrow-SimulatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3EFB49DD2AD05A06006E3846 /* Eyebrow-SimulatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EFB49EE2AD05A06006E3846 /* Build configuration list for PBXNativeTarget "Eyebrow-SimulatorUITests" */;
+			buildPhases = (
+				3EFB49DA2AD05A06006E3846 /* Sources */,
+				3EFB49DB2AD05A06006E3846 /* Frameworks */,
+				3EFB49DC2AD05A06006E3846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EFB49E02AD05A06006E3846 /* PBXTargetDependency */,
+			);
+			name = "Eyebrow-SimulatorUITests";
+			productName = "Eyebrow-SimulatorUITests";
+			productReference = 3EFB49DE2AD05A06006E3846 /* Eyebrow-SimulatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3EFB49B62AD05A04006E3846 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					3EFB49BD2AD05A04006E3846 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					3EFB49D32AD05A06006E3846 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 3EFB49BD2AD05A04006E3846;
+					};
+					3EFB49DD2AD05A06006E3846 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 3EFB49BD2AD05A04006E3846;
+					};
+				};
+			};
+			buildConfigurationList = 3EFB49B92AD05A04006E3846 /* Build configuration list for PBXProject "Eyebrow-Simulator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3EFB49B52AD05A04006E3846;
+			packageReferences = (
+				3EFB4A222AD05D62006E3846 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = 3EFB49BF2AD05A04006E3846 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3EFB49BD2AD05A04006E3846 /* Eyebrow-Simulator */,
+				3EFB49D32AD05A06006E3846 /* Eyebrow-SimulatorTests */,
+				3EFB49DD2AD05A06006E3846 /* Eyebrow-SimulatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EFB49BC2AD05A04006E3846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFB4A172AD05BC0006E3846 /* Colors.xcassets in Resources */,
+				3EFB49CE2AD05A06006E3846 /* LaunchScreen.storyboard in Resources */,
+				3EFB49CB2AD05A06006E3846 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFB49D22AD05A06006E3846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFB49DC2AD05A06006E3846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EFB49BA2AD05A04006E3846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFB4A1C2AD05BFF006E3846 /* UIView+.swift in Sources */,
+				3EFB4A0A2AD05B78006E3846 /* CameraResultView.swift in Sources */,
+				3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */,
+				3EFB4A2D2AD063F8006E3846 /* ViewControllerType.swift in Sources */,
+				3EFB4A0C2AD05B7C006E3846 /* CameraResultViewModel.swift in Sources */,
+				3EFB4A2F2AD06417006E3846 /* ViewType.swift in Sources */,
+				3EFB4A042AD05B49006E3846 /* CameraViewModel.swift in Sources */,
+				3EFB4A292AD05FC6006E3846 /* BaseViewController.swift in Sources */,
+				3EFB4A082AD05B5F006E3846 /* CameraResultViewController.swift in Sources */,
+				3EFB4A122AD05B95006E3846 /* SimulatorViewModel.swift in Sources */,
+				3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */,
+				3EFB4A062AD05B52006E3846 /* CameraView.swift in Sources */,
+				3EFB4A0E2AD05B8C006E3846 /* SimulatorViewController.swift in Sources */,
+				3EFB4A022AD05B32006E3846 /* CameraViewController.swift in Sources */,
+				3EFB4A102AD05B90006E3846 /* SimulatorView.swift in Sources */,
+				3EFB4A1E2AD05C84006E3846 /* ViewModelType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFB49D02AD05A06006E3846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFB49D92AD05A06006E3846 /* Eyebrow_SimulatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFB49DA2AD05A06006E3846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFB49E32AD05A06006E3846 /* Eyebrow_SimulatorUITests.swift in Sources */,
+				3EFB49E52AD05A06006E3846 /* Eyebrow_SimulatorUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3EFB49D62AD05A06006E3846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EFB49BD2AD05A04006E3846 /* Eyebrow-Simulator */;
+			targetProxy = 3EFB49D52AD05A06006E3846 /* PBXContainerItemProxy */;
+		};
+		3EFB49E02AD05A06006E3846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EFB49BD2AD05A04006E3846 /* Eyebrow-Simulator */;
+			targetProxy = 3EFB49DF2AD05A06006E3846 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3EFB49CC2AD05A06006E3846 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EFB49CD2AD05A06006E3846 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3EFB49E62AD05A06006E3846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3EFB49E72AD05A06006E3846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3EFB49E92AD05A06006E3846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Eyebrow-Simulator/Resource/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com-id.Eyebrow-Simulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3EFB49EA2AD05A06006E3846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Eyebrow-Simulator/Resource/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com-id.Eyebrow-Simulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3EFB49EC2AD05A06006E3846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com-id.Eyebrow-SimulatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eyebrow-Simulator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Eyebrow-Simulator";
+			};
+			name = Debug;
+		};
+		3EFB49ED2AD05A06006E3846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com-id.Eyebrow-SimulatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eyebrow-Simulator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Eyebrow-Simulator";
+			};
+			name = Release;
+		};
+		3EFB49EF2AD05A06006E3846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com-id.Eyebrow-SimulatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Eyebrow-Simulator";
+			};
+			name = Debug;
+		};
+		3EFB49F02AD05A06006E3846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com-id.Eyebrow-SimulatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Eyebrow-Simulator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3EFB49B92AD05A04006E3846 /* Build configuration list for PBXProject "Eyebrow-Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EFB49E62AD05A06006E3846 /* Debug */,
+				3EFB49E72AD05A06006E3846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EFB49E82AD05A06006E3846 /* Build configuration list for PBXNativeTarget "Eyebrow-Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EFB49E92AD05A06006E3846 /* Debug */,
+				3EFB49EA2AD05A06006E3846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EFB49EB2AD05A06006E3846 /* Build configuration list for PBXNativeTarget "Eyebrow-SimulatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EFB49EC2AD05A06006E3846 /* Debug */,
+				3EFB49ED2AD05A06006E3846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EFB49EE2AD05A06006E3846 /* Build configuration list for PBXNativeTarget "Eyebrow-SimulatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EFB49EF2AD05A06006E3846 /* Debug */,
+				3EFB49F02AD05A06006E3846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3EFB4A222AD05D62006E3846 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3EFB4A232AD05D62006E3846 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EFB4A222AD05D62006E3846 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3EFB49B62AD05A04006E3846 /* Project object */;
+}
