@@ -54,7 +54,8 @@ final class CameraView: UIView {
         }
         self.bottomView.addSubview(shutterButton)
         shutterButton.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalToSuperview().inset(40)
+            $0.centerX.equalToSuperview()
             $0.size.equalTo(80)
         }
     }

@@ -17,21 +17,9 @@ final class CameraViewController: BaseViewControllerType {
     
     // MARK: - UI Property
     
-    
+    let cameraView = CameraView()
     
     // MARK: - Life Cycle
-    
-    
-    
-    // MARK: - Setting
-    
-    
-    
-    // MARK: - Action Helper
-    
-    
-    
-    // MARK: - Custom Method
     
     init(_ viewModel: CameraViewModel) {
         self.viewModel = viewModel
@@ -43,9 +31,17 @@ final class CameraViewController: BaseViewControllerType {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = self.cameraView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // MARK: - Setting
+    
     func bind(viewModel: CameraViewModel) {
         
     }
-    
-    
 }
