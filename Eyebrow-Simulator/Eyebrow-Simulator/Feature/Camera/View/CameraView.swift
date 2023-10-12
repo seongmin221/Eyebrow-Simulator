@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
@@ -15,7 +16,7 @@ final class CameraView: UIView {
     
     // MARK: - UI Properties
     
-    let previewView = UIView()
+    let previewView = UIImageView()
     private let bottomView: UIView = {
         let view = UIView()
         view.backgroundColor = .menuWhite

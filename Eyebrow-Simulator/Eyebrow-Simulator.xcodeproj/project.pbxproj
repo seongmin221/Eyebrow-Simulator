@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E3310BE2AD7CE2F002BEC99 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BD2AD7CE2F002BEC99 /* UIViewController+.swift */; };
+		3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */; };
+		3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */; };
 		3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C12AD05A04006E3846 /* AppDelegate.swift */; };
 		3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */; };
 		3EFB49CB2AD05A06006E3846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFB49CA2AD05A06006E3846 /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E3310BD2AD7CE2F002BEC99 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
+		3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
 		3EFB49BE2AD05A04006E3846 /* Eyebrow-Simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eyebrow-Simulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFB49C12AD05A04006E3846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3310C32AD7E6B0002BEC99 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */,
+				3E3310BD2AD7CE2F002BEC99 /* UIViewController+.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3E3310C42AD7E6BB002BEC99 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */,
+				3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
 		3EFB49B52AD05A04006E3846 = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +300,8 @@
 		3EFB4A132AD05BA6006E3846 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */,
+				3E3310C32AD7E6B0002BEC99 /* UI */,
+				3E3310C42AD7E6BB002BEC99 /* Combine */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -485,11 +510,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EFB4A1C2AD05BFF006E3846 /* UIView+.swift in Sources */,
+				3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */,
 				3EFB4A0A2AD05B78006E3846 /* CameraResultView.swift in Sources */,
 				3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */,
 				3EFB4A2D2AD063F8006E3846 /* ViewControllerType.swift in Sources */,
 				3EFB4A4B2AD6696F006E3846 /* CameraService.swift in Sources */,
 				3EFB4A0C2AD05B7C006E3846 /* CameraResultViewModel.swift in Sources */,
+				3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */,
 				3EFB4A4D2AD66977006E3846 /* SimulatorService.swift in Sources */,
 				3EFB4A042AD05B49006E3846 /* CameraViewModel.swift in Sources */,
 				3EFB4A292AD05FC6006E3846 /* BaseViewController.swift in Sources */,
@@ -498,6 +525,7 @@
 				3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */,
 				3EFB4A062AD05B52006E3846 /* CameraView.swift in Sources */,
 				3EFB4A0E2AD05B8C006E3846 /* SimulatorViewController.swift in Sources */,
+				3E3310BE2AD7CE2F002BEC99 /* UIViewController+.swift in Sources */,
 				3EFB4A022AD05B32006E3846 /* CameraViewController.swift in Sources */,
 				3EFB4A102AD05B90006E3846 /* SimulatorView.swift in Sources */,
 				3EFB4A1E2AD05C84006E3846 /* ViewModelType.swift in Sources */,
@@ -677,6 +705,7 @@
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Eyebrow-Simulator/Resource/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "request camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -705,6 +734,7 @@
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Eyebrow-Simulator/Resource/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "request camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
