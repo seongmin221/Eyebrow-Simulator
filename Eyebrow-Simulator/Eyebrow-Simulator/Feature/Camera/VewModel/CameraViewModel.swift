@@ -8,25 +8,15 @@
 import UIKit
 import Combine
 
-<<<<<<< Updated upstream
-class CameraViewModel {
-    
-    // MARK: - Properties
-    
-    let cameraService = CameraService()
-    
-=======
 class CameraViewModel: ViewModelType {
     
     // MARK: - Properties
-    
->>>>>>> Stashed changes
+
     // MARK: - Input & Output
     
     struct Input {
         let viewDidLoad: AnyPublisher<Void, Never>
         let photoTrigger: AnyPublisher<Void, Never>
-<<<<<<< Updated upstream
         
         init(
             _ viewDidLoad: AnyPublisher<Void, Never>,
@@ -44,16 +34,7 @@ class CameraViewModel: ViewModelType {
         }
     }
     
-    // MARK: - Life Cycle
-=======
-    }
-    
-    struct Output {
-        let photoResult: AnyPublisher<UIImage, Never>
-    }
-    
     // MARK: - Initialize
->>>>>>> Stashed changes
     
     init() {
         
@@ -62,31 +43,7 @@ class CameraViewModel: ViewModelType {
     // MARK: - Transform
     
     func transform(_ input: Input) -> Output {
-<<<<<<< Updated upstream
-//        _ = input.viewDidLoad
-//            .map { [weak self] _ in
-//                guard let self = self else { return }
-//                Task { await self.cameraService.startSession() }
-//            }
-//        
-//        let photoResult = input.photoTrigger
-//            .map {
-//                self.cameraService.takePhoto()
-//            }
-//            .map {
-//                guard let ciImage = self.cameraService.previewImage
-//                else { return UIImage() }
-//                return UIImage(ciImage: ciImage)
-//            }
-//            .eraseToAnyPublisher()
             
         return Output(nil)
     }
 }
-=======
-        
-    }
-}
-
-// MARK: - Functions
->>>>>>> Stashed changes
