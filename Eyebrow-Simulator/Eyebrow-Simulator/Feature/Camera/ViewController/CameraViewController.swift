@@ -52,7 +52,7 @@ final class CameraViewController: BaseViewControllerType {
 //        let input = CameraViewModel.Input(viewDidLoad, photoTrigger)
 //        let output = self.viewModel.transform(input)
 //        
-//        output.photoResult?
+//        output.photoResult
 //            .sink(receiveValue: { [weak self] image in
 //                guard let self = self else { return }
 //                self.cameraView.previewView.image = image
@@ -63,17 +63,21 @@ final class CameraViewController: BaseViewControllerType {
         let viewDidLoad = self.viewDidLoadPublisher
         let photoTrigger = self.cameraView.shutterButton
             .controlPublisher(event: .touchUpInside)
-            .map { _ in Void() }
+            .map { _ in
+                print("VC: photo trigger")
+                return Void()
+            }
             .eraseToAnyPublisher()
         
         let input = CameraViewModel.Input(viewDidLoad, photoTrigger)
         let output = self.viewModel.transform(input)
         
-        output.photoResult?
+        output.photoPreviewLayer
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] image in
-                guard let self = self else { return }
-                self.cameraView.previewView.image = image
-            }).store(in: &cancelBag)
+            .sink(receiveValue: { [weak self] layer in
+                self?.view.layer.insertSublayer(layer, below: self?.cameraView.shutterButton.layer)
+                print("VC: preview layer")
+            })
+            .store(in: &self.cancelBag)
     }
 }
