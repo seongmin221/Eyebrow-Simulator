@@ -38,35 +38,16 @@ final class CameraViewController: BaseViewControllerType {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind(viewModel: self.viewModel)
+        self.hideNavigationBar(true)
     }
     
     // MARK: - Setting
-    
-//    func bind() {
-//        let viewDidLoad = self.viewDidLoadPublisher
-//        let photoTrigger = self.cameraView.shutterButton
-//            .controlPublisher(event: .touchUpInside)
-//            .map { _ in Void() }
-//            .eraseToAnyPublisher()
-//        
-//        let input = CameraViewModel.Input(viewDidLoad, photoTrigger)
-//        let output = self.viewModel.transform(input)
-//        
-//        output.photoResult
-//            .sink(receiveValue: { [weak self] image in
-//                guard let self = self else { return }
-//                self.cameraView.previewView.image = image
-//            }).store(in: &cancelBag)
-//    }
     
     func bind(viewModel: CameraViewModel) {
         let viewDidLoad = self.viewDidLoadPublisher
         let photoTrigger = self.cameraView.shutterButton
             .controlPublisher(event: .touchUpInside)
-            .map { _ in
-                print("VC: photo trigger")
-                return Void()
-            }
+            .map { _ in Void() }
             .eraseToAnyPublisher()
         
         let input = CameraViewModel.Input(viewDidLoad, photoTrigger)
@@ -75,9 +56,16 @@ final class CameraViewController: BaseViewControllerType {
         output.photoPreviewLayer
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] layer in
-                self?.view.layer.insertSublayer(layer, below: self?.cameraView.shutterButton.layer)
-                print("VC: preview layer")
+                guard let self = self else { return }
+                self.view.layer.insertSublayer(layer, below: self.view.layer)
+                layer.frame = self.view.layer.frame
             })
+            .store(in: &self.cancelBag)
+        
+        output.photoResult
+            .sink { photo in
+                dump(photo)
+            }
             .store(in: &self.cancelBag)
     }
 }

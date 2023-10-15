@@ -11,6 +11,8 @@ import UIKit
 
 final class CameraViewModel: ViewModelType {
     
+    typealias PreviewLayer = AVCaptureVideoPreviewLayer
+    
     // MARK: - Properties
     
     private let cameraService = CameraService()
@@ -30,10 +32,10 @@ final class CameraViewModel: ViewModelType {
     }
     
     struct Output {
-        let photoPreviewLayer: AnyPublisher<CALayer, Never>
+        let photoPreviewLayer: AnyPublisher<PreviewLayer, Never>
         let photoResult: AnyPublisher<UIImage, Never>
         
-        init(_ photoPreviewLayer: AnyPublisher<CALayer, Never>,
+        init(_ photoPreviewLayer: AnyPublisher<PreviewLayer, Never>,
              _ photoResult: AnyPublisher<UIImage, Never>) {
             self.photoPreviewLayer = photoPreviewLayer
             self.photoResult = photoResult
@@ -45,20 +47,20 @@ final class CameraViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         let photoPreviewLayer = input.viewDidLoad
-            .receive(on: DispatchQueue.main)
-            .handleEvents(receiveSubscription: { [weak self] _ in self?.cameraService.setupSession() })
-            .map { [weak self] _ -> CALayer in
-                guard let previewLayer = self?.cameraService.previewLayer else { return CALayer() }
-                print("VM: preview layer")
+            .receive(on: DispatchQueue.global(qos: .userInitiated))
+            .map { [weak self] _ -> PreviewLayer in
+                self?.cameraService.setupSession()
+                self?.cameraService.startSession()
+                guard let previewLayer = self?.cameraService.configurePreviewLayer()
+                else { return PreviewLayer() }
                 return previewLayer
             }
             .eraseToAnyPublisher()
             
         let photoResult = input.photoTrigger
-            .handleEvents(receiveSubscription: { [weak self] _ in self?.cameraService.takePhoto() })
             .map { [weak self] _ -> UIImage in
+                self?.cameraService.takePhoto()
                 guard let ciImage = self?.cameraService.takenPhoto else { return UIImage() }
-                print("VM: preview layer")
                 return UIImage(ciImage: ciImage)
             }
             .eraseToAnyPublisher()

@@ -64,13 +64,17 @@ extension CameraService {
     }
 }
 
-// MARK: - Configure
+// MARK: - Functions
 
 extension CameraService {
     
-    func sendPreviewLayer() {
-        guard let session = self.captureSession else { return }
-        self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
+    func configurePreviewLayer() -> AVCaptureVideoPreviewLayer? {
+        guard let session = self.captureSession else { return nil }
+        return AVCaptureVideoPreviewLayer(session: session)
+    }
+    
+    func startSession() {
+        self.captureSession?.startRunning()
     }
     
     func takePhoto() {
