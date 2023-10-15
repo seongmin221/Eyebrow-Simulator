@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E1C96692ADBC1AD00FCF3AB /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */; };
+		3E3310BE2AD7CE2F002BEC99 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */; };
+		3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */; };
+		3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */; };
+		3E61DC852AD9724200325730 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61DC842AD9724200325730 /* CameraService.swift */; };
 		3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C12AD05A04006E3846 /* AppDelegate.swift */; };
 		3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */; };
 		3EFB49CB2AD05A06006E3846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFB49CA2AD05A06006E3846 /* Assets.xcassets */; };
@@ -29,7 +34,6 @@
 		3EFB4A242AD05D62006E3846 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3EFB4A232AD05D62006E3846 /* SnapKit */; };
 		3EFB4A292AD05FC6006E3846 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A282AD05FC6006E3846 /* BaseViewController.swift */; };
 		3EFB4A2D2AD063F8006E3846 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A2C2AD063F8006E3846 /* ViewControllerType.swift */; };
-		3EFB4A4B2AD6696F006E3846 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A4A2AD6696F006E3846 /* CameraService.swift */; };
 		3EFB4A4D2AD66977006E3846 /* SimulatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB4A4C2AD66977006E3846 /* SimulatorService.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
+		3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
+		3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
+		3E61DC842AD9724200325730 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		3EFB49BE2AD05A04006E3846 /* Eyebrow-Simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eyebrow-Simulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFB49C12AD05A04006E3846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +85,6 @@
 		3EFB4A1D2AD05C84006E3846 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		3EFB4A282AD05FC6006E3846 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3EFB4A2C2AD063F8006E3846 /* ViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
-		3EFB4A4A2AD6696F006E3846 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		3EFB4A4C2AD66977006E3846 /* SimulatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +114,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3310C32AD7E6B0002BEC99 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */,
+				3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3E3310C42AD7E6BB002BEC99 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */,
+				3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */,
+				3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		3E61DC802AD9723100325730 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				3E61DC842AD9724200325730 /* CameraService.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		3EFB49B52AD05A04006E3846 = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +311,8 @@
 		3EFB4A132AD05BA6006E3846 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */,
+				3E3310C32AD7E6B0002BEC99 /* UI */,
+				3E3310C42AD7E6BB002BEC99 /* Combine */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,18 +361,10 @@
 		3EFB4A472AD66951006E3846 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				3EFB4A482AD66958006E3846 /* Camera */,
+				3E61DC802AD9723100325730 /* Camera */,
 				3EFB4A492AD6695B006E3846 /* Simulator */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		3EFB4A482AD66958006E3846 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-				3EFB4A4A2AD6696F006E3846 /* CameraService.swift */,
-			);
-			path = Camera;
 			sourceTree = "<group>";
 		};
 		3EFB4A492AD6695B006E3846 /* Simulator */ = {
@@ -485,11 +513,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EFB4A1C2AD05BFF006E3846 /* UIView+.swift in Sources */,
+				3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */,
 				3EFB4A0A2AD05B78006E3846 /* CameraResultView.swift in Sources */,
 				3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */,
 				3EFB4A2D2AD063F8006E3846 /* ViewControllerType.swift in Sources */,
-				3EFB4A4B2AD6696F006E3846 /* CameraService.swift in Sources */,
 				3EFB4A0C2AD05B7C006E3846 /* CameraResultViewModel.swift in Sources */,
+				3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */,
 				3EFB4A4D2AD66977006E3846 /* SimulatorService.swift in Sources */,
 				3EFB4A042AD05B49006E3846 /* CameraViewModel.swift in Sources */,
 				3EFB4A292AD05FC6006E3846 /* BaseViewController.swift in Sources */,
@@ -497,10 +526,13 @@
 				3EFB4A122AD05B95006E3846 /* SimulatorViewModel.swift in Sources */,
 				3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */,
 				3EFB4A062AD05B52006E3846 /* CameraView.swift in Sources */,
+				3E1C96692ADBC1AD00FCF3AB /* UIViewController+.swift in Sources */,
 				3EFB4A0E2AD05B8C006E3846 /* SimulatorViewController.swift in Sources */,
+				3E3310BE2AD7CE2F002BEC99 /* UIViewController+Combine.swift in Sources */,
 				3EFB4A022AD05B32006E3846 /* CameraViewController.swift in Sources */,
 				3EFB4A102AD05B90006E3846 /* SimulatorView.swift in Sources */,
 				3EFB4A1E2AD05C84006E3846 /* ViewModelType.swift in Sources */,
+				3E61DC852AD9724200325730 /* CameraService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +709,7 @@
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Eyebrow-Simulator/Resource/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "request camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -705,6 +738,7 @@
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Eyebrow-Simulator/Resource/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "request camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

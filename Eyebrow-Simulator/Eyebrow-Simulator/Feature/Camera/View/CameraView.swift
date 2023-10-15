@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
@@ -15,8 +16,7 @@ final class CameraView: UIView {
     
     // MARK: - UI Properties
     
-    let previewView = UIView()
-    private let bottomView: UIView = {
+    let bottomView: UIView = {
         let view = UIView()
         view.backgroundColor = .menuWhite
         return view
@@ -43,10 +43,6 @@ final class CameraView: UIView {
     // MARK: - Setting
     
     func setLayout() {
-        self.addSubview(previewView)
-        previewView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
         self.addSubview(bottomView)
         bottomView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalToSuperview()
