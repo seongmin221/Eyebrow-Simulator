@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E1C96692ADBC1AD00FCF3AB /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */; };
+		3E1C966C2ADD018A00FCF3AB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C966B2ADD018A00FCF3AB /* Coordinator.swift */; };
 		3E3310BE2AD7CE2F002BEC99 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */; };
 		3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */; };
 		3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		3E1C966B2ADD018A00FCF3AB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
 		3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
 		3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
@@ -114,6 +116,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E1C966A2ADD014400FCF3AB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		3E3310C32AD7E6B0002BEC99 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +215,7 @@
 				3EFB4A272AD05FBE006E3846 /* Base */,
 				3EFB4A142AD05BAA006E3846 /* Protocols */,
 				3EFB4A132AD05BA6006E3846 /* Extensions */,
+				3E1C966A2ADD014400FCF3AB /* Coordinator */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -322,6 +332,7 @@
 			children = (
 				3EFB4A2C2AD063F8006E3846 /* ViewControllerType.swift */,
 				3EFB4A1D2AD05C84006E3846 /* ViewModelType.swift */,
+				3E1C966B2ADD018A00FCF3AB /* Coordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -518,6 +529,7 @@
 				3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */,
 				3EFB4A2D2AD063F8006E3846 /* ViewControllerType.swift in Sources */,
 				3EFB4A0C2AD05B7C006E3846 /* CameraResultViewModel.swift in Sources */,
+				3E1C966C2ADD018A00FCF3AB /* Coordinator.swift in Sources */,
 				3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */,
 				3EFB4A4D2AD66977006E3846 /* SimulatorService.swift in Sources */,
 				3EFB4A042AD05B49006E3846 /* CameraViewModel.swift in Sources */,
