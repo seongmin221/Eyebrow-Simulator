@@ -21,19 +21,19 @@ final class CameraCoordinator: Coordinator {
     }
     
     func start() {
+        let view = CameraView()
         let viewModel = CameraViewModel()
-        let viewController = CameraViewController(viewModel)
+        let viewController = CameraViewController(view, viewModel)
+        
         self.navigationController.viewControllers = [viewController]
     }
 }
 
 extension CameraCoordinator: CameraCoordinatorDelegate {
-    func toCameraResult() {
-        
-    }
-    
-    
-    func toCameraResult(of image: UIImage) {
-        
+    func toCameraResult(with image: UIImage) {
+        let view = CameraResultView(previewImage: image)
+        let viewModel = CameraResultViewModel()
+        let viewController = CameraResultViewController(view, viewModel)
+        self.navigationController.pushViewController(viewController, animated: true)
     }
 }

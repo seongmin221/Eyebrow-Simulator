@@ -5,23 +5,30 @@
 //  Created by 이성민 on 10/7/23.
 //
 
-import Foundation
 import Combine
+import UIKit
+
+protocol CameraCoordinatorDelegate: CoordinatorDelegate {
+    func toCameraResult(with image: UIImage)
+}
 
 final class CameraViewController: BaseViewControllerType {
     
     // MARK: - Property
     
+    weak var coordinator: CameraCoordinatorDelegate?
+    
+    var baseView: CameraView
     var viewModel: CameraViewModel
     var cancelBag: Set<AnyCancellable> = Set()
     
-    // MARK: - UI Property
-    
-    let cameraView = CameraView()
-    
     // MARK: - Life Cycle
     
-    init(_ viewModel: CameraViewModel) {
+    init(
+        _ view: CameraView,
+        _ viewModel: CameraViewModel
+    ) {
+        self.baseView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,10 +36,6 @@ final class CameraViewController: BaseViewControllerType {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func loadView() {
-        self.view = self.cameraView
     }
     
     override func viewDidLoad() {
@@ -45,7 +48,7 @@ final class CameraViewController: BaseViewControllerType {
     
     func bind(viewModel: CameraViewModel) {
         let viewDidLoad = self.viewDidLoadPublisher
-        let photoTrigger = self.cameraView.shutterButton
+        let photoTrigger = self.baseView.shutterButton
             .controlPublisher(event: .touchUpInside)
             .map { _ in Void() }
             .eraseToAnyPublisher()
@@ -63,8 +66,8 @@ final class CameraViewController: BaseViewControllerType {
             .store(in: &self.cancelBag)
         
         output.photoResult
-            .sink { photo in
-                dump(photo)
+            .sink { [weak self] photo in
+                self?.coordinator?.toCameraResult(with: photo)
             }
             .store(in: &self.cancelBag)
     }

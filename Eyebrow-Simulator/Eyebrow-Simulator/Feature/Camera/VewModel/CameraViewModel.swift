@@ -9,10 +9,6 @@ import AVFoundation
 import Combine
 import UIKit
 
-protocol CameraCoordinatorDelegate {
-    func toCameraResult()
-}
-
 final class CameraViewModel: ViewModelType {
     
     typealias PreviewLayer = AVCaptureVideoPreviewLayer
@@ -20,8 +16,6 @@ final class CameraViewModel: ViewModelType {
     // MARK: - Properties
     
     private let cameraService = CameraService()
-    private weak var coordiantor: CameraCoordinator?
-    
 
     // MARK: - Input & Output
     

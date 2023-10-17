@@ -10,12 +10,17 @@ import Combine
 
 typealias BaseViewControllerType = UIViewController & ViewControllerType
 
-class BaseViewController<T: ViewModelType>: BaseViewControllerType {
+class BaseViewController<V: UIView, VM: ViewModelType>: BaseViewControllerType {
     
-    var viewModel: T
+    var baseView: V
+    var viewModel: VM
     var cancelBag: Set<AnyCancellable> = Set()
     
-    required init(_ viewModel: T) {
+    required init(
+        _ view: V,
+        _ viewModel: VM
+    ) {
+        self.baseView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,11 +29,15 @@ class BaseViewController<T: ViewModelType>: BaseViewControllerType {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = self.baseView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind(viewModel: self.viewModel)
     }
     
-    func bind(viewModel: T) {}
+    func bind(viewModel: VM) {}
     
 }

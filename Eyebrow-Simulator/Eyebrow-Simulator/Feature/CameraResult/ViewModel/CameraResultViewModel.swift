@@ -6,3 +6,28 @@
 //
 
 import Foundation
+
+final class CameraResultViewModel: ViewModelType {
+    
+    // MARK: - Properties
+    
+    // MARK: - Input & Output
+    
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
+    
+    // MARK: - Initialize
+    
+    // MARK: - Transform
+    
+    func transform(_ input: Input) -> Output {
+        return Output()
+    }
+    
+    // MARK: - Functions
+}

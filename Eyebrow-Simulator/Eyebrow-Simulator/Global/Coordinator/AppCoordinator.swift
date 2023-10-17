@@ -30,8 +30,9 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator {
     
     func showCameraView() {
+        let view = CameraView()
         let viewModel = CameraViewModel()
-        let viewController = CameraViewController(viewModel)
+        let viewController = CameraViewController(view, viewModel)
         self.navigationController.pushViewController(viewController, animated: false)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0F3C8D2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F3C8C2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift */; };
 		3E1C96692ADBC1AD00FCF3AB /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */; };
 		3E1C966C2ADD018A00FCF3AB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C966B2ADD018A00FCF3AB /* Coordinator.swift */; };
 		3E1C966E2ADD01F900FCF3AB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C966D2ADD01F900FCF3AB /* AppCoordinator.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E0F3C8C2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		3E1C966B2ADD018A00FCF3AB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3E1C966D2ADD01F900FCF3AB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				3EFB4A2C2AD063F8006E3846 /* ViewControllerType.swift */,
 				3EFB4A1D2AD05C84006E3846 /* ViewModelType.swift */,
 				3E1C966B2ADD018A00FCF3AB /* Coordinator.swift */,
+				3E0F3C8C2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				3EFB4A022AD05B32006E3846 /* CameraViewController.swift in Sources */,
 				3EFB4A102AD05B90006E3846 /* SimulatorView.swift in Sources */,
 				3EFB4A1E2AD05C84006E3846 /* ViewModelType.swift in Sources */,
+				3E0F3C8D2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift in Sources */,
 				3E61DC852AD9724200325730 /* CameraService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
