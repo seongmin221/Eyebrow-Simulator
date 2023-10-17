@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  CameraCoordinator.swift
 //  Eyebrow-Simulator
 //
 //  Created by 이성민 on 10/16/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class CameraCoordinator: Coordinator {
     
     // MARK: - Properties
     
@@ -21,17 +21,19 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        self.showCameraView()
+        let viewModel = CameraViewModel()
+        let viewController = CameraViewController(viewModel)
+        self.navigationController.viewControllers = [viewController]
     }
 }
 
-// MARK: - Functions
-
-extension AppCoordinator {
+extension CameraCoordinator: CameraCoordinatorDelegate {
+    func toCameraResult() {
+        
+    }
     
-    func showCameraView() {
-        let viewModel = CameraViewModel()
-        let viewController = CameraViewController(viewModel)
-        self.navigationController.pushViewController(viewController, animated: false)
+    
+    func toCameraResult(of image: UIImage) {
+        
     }
 }
