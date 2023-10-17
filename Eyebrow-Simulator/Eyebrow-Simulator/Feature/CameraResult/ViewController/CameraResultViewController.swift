@@ -8,23 +8,24 @@
 import Combine
 import UIKit
 
-final class CameraResultViewController: BaseViewControllerType {
+final class CameraResultViewController: ViewControllerType {
     
+    typealias View = CameraResultView
+    typealias ViewModel = CameraResultViewModel
     
     // MARK: - Property
     
     var baseView: CameraResultView
-    
     var viewModel: CameraResultViewModel
     var cancelBag: Set<AnyCancellable> = Set()
     
     // MARK: - Life Cycle
     
     init(
-        _ view: CameraResultView,
+        _ baseView: CameraResultView,
         _ viewModel: CameraResultViewModel
     ) {
-        self.baseView = view
+        self.baseView = baseView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,9 +35,12 @@ final class CameraResultViewController: BaseViewControllerType {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = baseView
+    }
+    
     // MARK: - Setting
     
-    func bind(viewModel: CameraResultViewModel) {
-        
-    }
+    func bind(viewModel: CameraResultViewModel) {}
+    
 }

@@ -10,7 +10,7 @@ import Combine
 
 import SnapKit
 
-final class CameraView: UIView {
+final class CameraView: ViewType {
     
     // MARK: - Properties
     // MARK: - UI Properties

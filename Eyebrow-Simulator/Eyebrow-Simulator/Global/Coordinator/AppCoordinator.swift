@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: CoordinatorType {
     
     // MARK: - Properties
     
-    var childrenCoordinators: [Coordinator] = []
+    var childrenCoordinators: [CoordinatorType] = []
     private var navigationController: UINavigationController!
     
     // MARK: - Init
@@ -20,7 +20,7 @@ final class AppCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func show() {
         self.showCameraView()
     }
 }

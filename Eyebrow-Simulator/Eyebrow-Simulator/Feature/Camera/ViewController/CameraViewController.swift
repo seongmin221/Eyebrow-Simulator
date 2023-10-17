@@ -12,7 +12,7 @@ protocol CameraCoordinatorDelegate: CoordinatorDelegate {
     func toCameraResult(with image: UIImage)
 }
 
-final class CameraViewController: BaseViewControllerType {
+final class CameraViewController: ViewControllerType {
     
     // MARK: - Property
     
@@ -36,6 +36,10 @@ final class CameraViewController: BaseViewControllerType {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        self.view = self.baseView
     }
     
     override func viewDidLoad() {
