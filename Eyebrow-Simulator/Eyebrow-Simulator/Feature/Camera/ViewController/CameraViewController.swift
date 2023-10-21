@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol CameraCoordinatorDelegate: CoordinatorDelegate {
-    func toCameraResult(with image: UIImage)
+    func toCameraResultView(with image: UIImage)
 }
 
 final class CameraViewController: ViewControllerType {
@@ -53,7 +53,7 @@ final class CameraViewController: ViewControllerType {
     func bind(viewModel: CameraViewModel) {
         let viewDidLoad = self.viewDidLoadPublisher
         let photoTrigger = self.baseView.shutterButton
-            .controlPublisher(event: .touchUpInside)
+            .controlPublisher(for: .touchUpInside)
             .map { _ in Void() }
             .eraseToAnyPublisher()
         
@@ -70,8 +70,9 @@ final class CameraViewController: ViewControllerType {
             .store(in: &self.cancelBag)
         
         output.photoResult
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] photo in
-                self?.coordinator?.toCameraResult(with: photo)
+                self?.coordinator?.toCameraResultView(with: photo)
             }
             .store(in: &self.cancelBag)
     }

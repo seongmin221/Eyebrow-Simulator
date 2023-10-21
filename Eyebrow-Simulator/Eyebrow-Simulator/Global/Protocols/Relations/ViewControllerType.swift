@@ -6,6 +6,5 @@
 //
 
 import UIKit
-import Combine
 
 typealias ViewControllerType = UIViewController & ViewRepresentable & ViewModelBindable

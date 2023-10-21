@@ -8,12 +8,19 @@
 import Combine
 import UIKit
 
+protocol CameraResultViewCoordinatorDelegate: CoordinatorDelegate {
+    func backToCamera()
+    func toSimulator()
+}
+
 final class CameraResultViewController: ViewControllerType {
     
     typealias View = CameraResultView
     typealias ViewModel = CameraResultViewModel
     
     // MARK: - Property
+    
+    weak var coordinator: CameraResultViewCoordinatorDelegate?
     
     var baseView: CameraResultView
     var viewModel: CameraResultViewModel

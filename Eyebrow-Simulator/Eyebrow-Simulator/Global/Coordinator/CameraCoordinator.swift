@@ -11,8 +11,10 @@ final class CameraCoordinator: CoordinatorType {
     
     // MARK: - Properties
     
+    var parentCoordinator: CoordinatorType?
     var childrenCoordinators: [CoordinatorType] = []
-    private var navigationController: UINavigationController!
+    
+    var navigationController: UINavigationController
     
     // MARK: - Init
     
@@ -24,16 +26,15 @@ final class CameraCoordinator: CoordinatorType {
         let view = CameraView()
         let viewModel = CameraViewModel()
         let viewController = CameraViewController(view, viewModel)
-        
+        viewController.coordinator = self
         self.navigationController.viewControllers = [viewController]
     }
 }
 
 extension CameraCoordinator: CameraCoordinatorDelegate {
-    func toCameraResult(with image: UIImage) {
-        let view = CameraResultView(previewImage: image)
-        let viewModel = CameraResultViewModel()
-        let viewController = CameraResultViewController(view, viewModel)
-        self.navigationController.pushViewController(viewController, animated: true)
+    func toCameraResultView(with image: UIImage) {
+        let childCoordinator = CameraResultCoordinator(self.navigationController, image)
+        self.childrenCoordinators.append(childCoordinator)
+        childCoordinator.show()
     }
 }

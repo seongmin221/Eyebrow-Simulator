@@ -7,9 +7,7 @@
 
 import Foundation
 
-typealias ViewModelType = ViewModel
-
-protocol ViewModel {
+protocol ViewModelType {
     associatedtype Input
     associatedtype Output
     func transform(_ input: Input) -> Output

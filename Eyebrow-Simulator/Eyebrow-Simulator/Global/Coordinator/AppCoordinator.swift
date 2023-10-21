@@ -11,17 +11,22 @@ final class AppCoordinator: CoordinatorType {
     
     // MARK: - Properties
     
+    var parentCoordinator: CoordinatorType?
     var childrenCoordinators: [CoordinatorType] = []
-    private var navigationController: UINavigationController!
+    
+    var navigationController: UINavigationController
     
     // MARK: - Init
     
-    init(navigationController: UINavigationController) {
+    init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func show() {
-        self.showCameraView()
+        let view = CameraView()
+        let viewModel = CameraViewModel()
+        let viewController = CameraViewController(view, viewModel)
+        self.navigationController.pushViewController(viewController, animated: false)
     }
 }
 
@@ -29,7 +34,7 @@ final class AppCoordinator: CoordinatorType {
 
 extension AppCoordinator {
     
-    func showCameraView() {
+    func presentCameraView() {
         let view = CameraView()
         let viewModel = CameraViewModel()
         let viewController = CameraViewController(view, viewModel)
