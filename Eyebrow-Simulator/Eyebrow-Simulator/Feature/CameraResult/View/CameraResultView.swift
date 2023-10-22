@@ -17,8 +17,9 @@ final class CameraResultView: ViewType {
     
     // MARK: - UI Property
     
-    private let preivewImageView: UIImageView = {
+    private lazy var preivewImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = self.previewImage
         return imageView
     }()
     
@@ -41,6 +42,8 @@ final class CameraResultView: ViewType {
         self.addSubview(preivewImageView)
         preivewImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+//            $0.width.equalTo(SizeLiteral.Screen.width)
+//            $0.height.equalTo(SizeLiteral.Screen.height)
         }
     }
 }

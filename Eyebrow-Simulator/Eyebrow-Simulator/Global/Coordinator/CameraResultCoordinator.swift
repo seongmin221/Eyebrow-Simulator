@@ -9,7 +9,7 @@ import UIKit
 
 final class CameraResultCoordinator: CoordinatorType {
     
-    var parentCoordinator: CoordinatorType?
+    weak var parentCoordinator: CoordinatorType?
     var childrenCoordinators: [CoordinatorType] = []
     
     var navigationController: UINavigationController
@@ -27,7 +27,11 @@ final class CameraResultCoordinator: CoordinatorType {
     func show() {
         let view = CameraResultView(previewImage: self.resultImage)
         let viewModel = CameraResultViewModel()
-        let viewController = CameraResultViewController(view, viewModel)
+        let viewController = CameraResultViewController(
+            coordinator: self,
+            view: view,
+            viewModel: viewModel
+        )
         viewController.coordinator = self
         self.navigationController.pushViewController(viewController, animated: true)
     }

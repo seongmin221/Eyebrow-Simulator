@@ -15,12 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         
+//        let view = CameraView()
+//        let viewModel = CameraViewModel()
+//        let viewController = CameraViewController(view, viewModel)
         let navigationController = UINavigationController()
-        self.window?.rootViewController = navigationController
-        
-        let coordinator = AppCoordinator(navigationController: navigationController)
+        let coordinator = AppCoordinator(navigationController)
         coordinator.show()
-        
+        self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
 

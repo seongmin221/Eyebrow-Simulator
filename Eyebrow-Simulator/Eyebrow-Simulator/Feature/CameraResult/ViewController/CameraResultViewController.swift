@@ -29,12 +29,14 @@ final class CameraResultViewController: ViewControllerType {
     // MARK: - Life Cycle
     
     init(
-        _ baseView: CameraResultView,
-        _ viewModel: CameraResultViewModel
+        coordinator: CameraResultCoordinator,
+        view: CameraResultView,
+        viewModel: CameraResultViewModel
     ) {
-        self.baseView = baseView
+        self.baseView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.hideNavigationBar(false)
     }
     
     @available(*, unavailable)

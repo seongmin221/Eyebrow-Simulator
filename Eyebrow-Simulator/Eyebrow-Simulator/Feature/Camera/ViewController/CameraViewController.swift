@@ -25,9 +25,11 @@ final class CameraViewController: ViewControllerType {
     // MARK: - Life Cycle
     
     init(
-        _ view: CameraView,
-        _ viewModel: CameraViewModel
+        coordinator: CameraCoordinator,
+        view: CameraView,
+        viewModel: CameraViewModel
     ) {
+        self.coordinator = coordinator
         self.baseView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -71,8 +73,8 @@ final class CameraViewController: ViewControllerType {
         
         output.photoResult
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] photo in
-                self?.coordinator?.toCameraResultView(with: photo)
+            .sink { [self] photo in
+                self.coordinator?.toCameraResultView(with: photo)
             }
             .store(in: &self.cancelBag)
     }

@@ -23,10 +23,9 @@ final class AppCoordinator: CoordinatorType {
     }
     
     func show() {
-        let view = CameraView()
-        let viewModel = CameraViewModel()
-        let viewController = CameraViewController(view, viewModel)
-        self.navigationController.pushViewController(viewController, animated: false)
+        let cameraCoordinator = CameraCoordinator(navigationController)
+        cameraCoordinator.parentCoordinator = self
+        cameraCoordinator.show()
     }
 }
 
@@ -34,10 +33,10 @@ final class AppCoordinator: CoordinatorType {
 
 extension AppCoordinator {
     
-    func presentCameraView() {
-        let view = CameraView()
-        let viewModel = CameraViewModel()
-        let viewController = CameraViewController(view, viewModel)
-        self.navigationController.pushViewController(viewController, animated: false)
-    }
+//    func presentCameraView() {
+//        let view = CameraView()
+//        let viewModel = CameraViewModel()
+//        let viewController = CameraViewController(view, viewModel)
+//        self.navigationController.pushViewController(viewController, animated: false)
+//    }
 }

@@ -19,6 +19,7 @@
 		3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */; };
 		3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */; };
 		3E61DC852AD9724200325730 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61DC842AD9724200325730 /* CameraService.swift */; };
+		3ED85E662AE4B36500671826 /* SizeLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED85E652AE4B36500671826 /* SizeLiteral.swift */; };
 		3EF938EA2AE38E690096BE85 /* CameraResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF938E92AE38E690096BE85 /* CameraResultCoordinator.swift */; };
 		3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C12AD05A04006E3846 /* AppDelegate.swift */; };
 		3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */; };
@@ -75,6 +76,7 @@
 		3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
 		3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
 		3E61DC842AD9724200325730 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		3ED85E652AE4B36500671826 /* SizeLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeLiteral.swift; sourceTree = "<group>"; };
 		3EF938E92AE38E690096BE85 /* CameraResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultCoordinator.swift; sourceTree = "<group>"; };
 		3EFB49BE2AD05A04006E3846 /* Eyebrow-Simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eyebrow-Simulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFB49C12AD05A04006E3846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				3EFB49CF2AD05A06006E3846 /* Info.plist */,
 				3EFB49CA2AD05A06006E3846 /* Assets.xcassets */,
 				3EFB4A162AD05BC0006E3846 /* Colors.xcassets */,
+				3ED85E652AE4B36500671826 /* SizeLiteral.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				3EFB4A1E2AD05C84006E3846 /* ViewModelType.swift in Sources */,
 				3E0F3C8D2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift in Sources */,
 				3E61DC852AD9724200325730 /* CameraService.swift in Sources */,
+				3ED85E662AE4B36500671826 /* SizeLiteral.swift in Sources */,
 				3E0F3C912ADEADCB000FB3A8 /* ViewControllerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
