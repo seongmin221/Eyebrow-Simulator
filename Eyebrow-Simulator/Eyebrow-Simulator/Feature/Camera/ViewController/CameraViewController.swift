@@ -18,19 +18,17 @@ final class CameraViewController: ViewControllerType {
     
     weak var coordinator: CameraCoordinatorDelegate?
     
-    var baseView: CameraView
+    var baseView: CameraView = CameraView()
     var viewModel: CameraViewModel
     var cancelBag: Set<AnyCancellable> = Set()
     
     // MARK: - Life Cycle
     
     init(
-        coordinator: CameraCoordinator,
-        view: CameraView,
+//        view: CameraView,
         viewModel: CameraViewModel
     ) {
-        self.coordinator = coordinator
-        self.baseView = view
+//        self.baseView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

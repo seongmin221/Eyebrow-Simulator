@@ -9,36 +9,31 @@ import UIKit
 
 final class CameraCoordinator: CoordinatorType {
     
-    // MARK: - Properties
+    var navigationController: UINavigationController
     
     weak var parentCoordinator: CoordinatorType?
     var childrenCoordinators: [CoordinatorType] = []
     
-    var navigationController: UINavigationController
-    
-    // MARK: - Init
-    
-    init(_ navigationController: UINavigationController) {
+    init(
+        _ navigationController: UINavigationController
+    ) {
         self.navigationController = navigationController
     }
     
     func show() {
-        let view = CameraView()
         let viewModel = CameraViewModel()
-        let viewController = CameraViewController(
-            coordinator: self,
-            view: view,
-            viewModel: viewModel
-        )
-        self.navigationController.pushViewController(viewController, animated: false)
+        let viewController = CameraViewController(viewModel: viewModel)
+        viewController.coordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
     }
 }
 
 extension CameraCoordinator: CameraCoordinatorDelegate {
     
     func toCameraResultView(with image: UIImage) {
-        let cameraResultCoordinator = CameraResultCoordinator(self.navigationController, image)
-        cameraResultCoordinator.parentCoordinator = self
-        cameraResultCoordinator.show()
+        let child = CameraResultCoordinator(self.navigationController, image)
+        child.parentCoordinator = self
+        child.show()
+        self.childrenCoordinators.append(child)
     }
 }

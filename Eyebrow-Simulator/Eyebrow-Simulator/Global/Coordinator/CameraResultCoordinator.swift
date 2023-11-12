@@ -9,29 +9,25 @@ import UIKit
 
 final class CameraResultCoordinator: CoordinatorType {
     
+    var navigationController: UINavigationController
+    
     weak var parentCoordinator: CoordinatorType?
     var childrenCoordinators: [CoordinatorType] = []
     
-    var navigationController: UINavigationController
-    
-    private let resultImage: UIImage
+    private var previewImage: UIImage
     
     init(
         _ navigationController: UINavigationController,
-        _ resultImage: UIImage
+        _ image: UIImage
     ) {
         self.navigationController = navigationController
-        self.resultImage = resultImage
+        self.previewImage = image
     }
     
     func show() {
-        let view = CameraResultView(previewImage: self.resultImage)
+        let view = CameraResultView(previewImage: self.previewImage)
         let viewModel = CameraResultViewModel()
-        let viewController = CameraResultViewController(
-            coordinator: self,
-            view: view,
-            viewModel: viewModel
-        )
+        let viewController = CameraResultViewController(view: view, viewModel: viewModel)
         viewController.coordinator = self
         self.navigationController.pushViewController(viewController, animated: true)
     }

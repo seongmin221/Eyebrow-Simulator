@@ -29,7 +29,6 @@ final class CameraResultViewController: ViewControllerType {
     // MARK: - Life Cycle
     
     init(
-        coordinator: CameraResultCoordinator,
         view: CameraResultView,
         viewModel: CameraResultViewModel
     ) {
