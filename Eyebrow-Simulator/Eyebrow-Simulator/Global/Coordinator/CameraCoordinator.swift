@@ -15,7 +15,7 @@ final class CameraCoordinator: CoordinatorType {
     var childrenCoordinators: [CoordinatorType] = []
     
     init(
-        _ navigationController: UINavigationController
+        navigationController: UINavigationController
     ) {
         self.navigationController = navigationController
     }
@@ -31,7 +31,7 @@ final class CameraCoordinator: CoordinatorType {
 extension CameraCoordinator: CameraCoordinatorDelegate {
     
     func toCameraResultView(with image: UIImage) {
-        let child = CameraResultCoordinator(self.navigationController, image)
+        let child = CameraResultCoordinator(navigationController: self.navigationController, image: image)
         child.parentCoordinator = self
         child.show()
         self.childrenCoordinators.append(child)
