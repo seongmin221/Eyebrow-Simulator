@@ -10,20 +10,15 @@ import UIKit
 
 import SnapKit
 
-final class CameraView: UIView {
+final class CameraView: ViewType {
     
     // MARK: - Properties
-    
-<<<<<<< Updated upstream
-=======
     var shutterButtonTrigger: AnyPublisher<Void, Never> {
         return self.shutterButton
             .controlPublisher(for: .touchUpInside)
             .map { _ in }
             .eraseToAnyPublisher()
     }
-    
->>>>>>> Stashed changes
     // MARK: - UI Properties
     
     let bottomView: UIView = {
@@ -52,7 +47,7 @@ final class CameraView: UIView {
     
     // MARK: - Setting
     
-    func setLayout() {
+    private func setLayout() {
         self.addSubview(bottomView)
         bottomView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalToSuperview()

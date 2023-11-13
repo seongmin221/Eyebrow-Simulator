@@ -5,9 +5,6 @@
 //  Created by 이성민 on 10/7/23.
 //
 
-<<<<<<< Updated upstream
-import Foundation
-=======
 import Combine
 import UIKit
 
@@ -93,4 +90,3 @@ final class CameraResultViewController: ViewControllerType {
     }
     
 }
->>>>>>> Stashed changes

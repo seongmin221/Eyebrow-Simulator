@@ -108,4 +108,3 @@ extension CameraResultView {
         })
     }
 }
->>>>>>> Stashed changes

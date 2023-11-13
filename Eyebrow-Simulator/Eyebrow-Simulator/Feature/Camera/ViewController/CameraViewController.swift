@@ -5,29 +5,28 @@
 //  Created by 이성민 on 10/7/23.
 //
 
-import Foundation
 import Combine
+import UIKit
 
-final class CameraViewController: BaseViewControllerType {
+protocol CameraCoordinatorDelegate: CoordinatorDelegate {
+    func toCameraResultView(with image: UIImage)
+}
+
+final class CameraViewController: ViewControllerType {
     
     // MARK: - Property
     
+    weak var coordinator: CameraCoordinatorDelegate?
+    
+    var baseView: CameraView = CameraView()
     var viewModel: CameraViewModel
     var cancelBag: Set<AnyCancellable> = Set()
     
-    // MARK: - UI Property
-    
-    let cameraView = CameraView()
-    
     // MARK: - Life Cycle
     
-<<<<<<< Updated upstream
-    init(_ viewModel: CameraViewModel) {
-=======
     init(
         viewModel: CameraViewModel
     ) {
->>>>>>> Stashed changes
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -38,7 +37,7 @@ final class CameraViewController: BaseViewControllerType {
     }
     
     override func loadView() {
-        self.view = self.cameraView
+        self.view = self.baseView
     }
     
     override func viewDidLoad() {
@@ -50,15 +49,6 @@ final class CameraViewController: BaseViewControllerType {
     // MARK: - Setting
     
     func bind(viewModel: CameraViewModel) {
-<<<<<<< Updated upstream
-        let viewDidLoad = self.viewDidLoadPublisher
-        let photoTrigger = self.cameraView.shutterButton
-            .controlPublisher(event: .touchUpInside)
-            .map { _ in Void() }
-            .eraseToAnyPublisher()
-=======
->>>>>>> Stashed changes
-        
         let input = CameraViewModel.Input(
             viewDidLoad: self.viewDidLoadPublisher,
             photoTrigger: self.baseView.shutterButtonTrigger
@@ -76,8 +66,9 @@ final class CameraViewController: BaseViewControllerType {
             .store(in: &self.cancelBag)
         
         output.photoResult
-            .sink { photo in
-                dump(photo)
+            .receive(on: DispatchQueue.main)
+            .sink { [self] photo in
+                self.coordinator?.toCameraResultView(with: photo)
             }
             .store(in: &self.cancelBag)
     }
