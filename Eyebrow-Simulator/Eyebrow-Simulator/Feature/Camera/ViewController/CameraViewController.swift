@@ -21,7 +21,13 @@ final class CameraViewController: BaseViewControllerType {
     
     // MARK: - Life Cycle
     
+<<<<<<< Updated upstream
     init(_ viewModel: CameraViewModel) {
+=======
+    init(
+        viewModel: CameraViewModel
+    ) {
+>>>>>>> Stashed changes
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,13 +50,20 @@ final class CameraViewController: BaseViewControllerType {
     // MARK: - Setting
     
     func bind(viewModel: CameraViewModel) {
+<<<<<<< Updated upstream
         let viewDidLoad = self.viewDidLoadPublisher
         let photoTrigger = self.cameraView.shutterButton
             .controlPublisher(event: .touchUpInside)
             .map { _ in Void() }
             .eraseToAnyPublisher()
+=======
+>>>>>>> Stashed changes
         
-        let input = CameraViewModel.Input(viewDidLoad, photoTrigger)
+        let input = CameraViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            photoTrigger: self.baseView.shutterButtonTrigger
+        )
+        
         let output = self.viewModel.transform(input)
         
         output.photoPreviewLayer

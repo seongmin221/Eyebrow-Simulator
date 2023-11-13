@@ -5,8 +5,8 @@
 //  Created by 이성민 on 10/7/23.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 import SnapKit
 
@@ -14,6 +14,16 @@ final class CameraView: UIView {
     
     // MARK: - Properties
     
+<<<<<<< Updated upstream
+=======
+    var shutterButtonTrigger: AnyPublisher<Void, Never> {
+        return self.shutterButton
+            .controlPublisher(for: .touchUpInside)
+            .map { _ in }
+            .eraseToAnyPublisher()
+    }
+    
+>>>>>>> Stashed changes
     // MARK: - UI Properties
     
     let bottomView: UIView = {
