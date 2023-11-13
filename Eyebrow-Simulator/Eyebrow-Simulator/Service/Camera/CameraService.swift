@@ -54,13 +54,15 @@ extension CameraService {
     private func configureOutput() {
         let videoQueue = DispatchQueue(label: "video queue", qos: .userInteractive)
         let videoOutput = AVCaptureVideoDataOutput()
-        videoOutput.setSampleBufferDelegate(self, queue: videoQueue)
-        videoOutput.connections.first?.videoOrientation = .portrait
         
         guard let session = self.captureSession else { return }
         if session.canAddOutput(videoOutput) {
             session.addOutput(videoOutput)
         }
+        
+        videoOutput.setSampleBufferDelegate(self, queue: videoQueue)
+        videoOutput.connections.first?.videoOrientation = .portrait
+        videoOutput.connections.first?.isVideoMirrored = true
     }
 }
 
