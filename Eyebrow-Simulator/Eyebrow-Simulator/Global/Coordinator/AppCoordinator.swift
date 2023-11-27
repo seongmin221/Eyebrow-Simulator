@@ -40,6 +40,10 @@ extension AppCoordinator {
             }
         }
     }
+    
+    func popViewController(withAnimation isAnimated: Bool) {
+        self.navigationController.popViewController(animated: isAnimated)
+    }
 }
 
 // MARK: - To Child Coordinators

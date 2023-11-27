@@ -20,14 +20,20 @@ final class CameraView: ViewType {
             .map { _ in }
             .eraseToAnyPublisher()
     }
+    
     // MARK: - UI Properties
     
-    let bottomView: UIView = {
+    let cameraLayerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    private let bottomView: UIView = {
         let view = UIView()
         view.backgroundColor = .menuWhite
         return view
     }()
-    let shutterButton: UIButton = {
+    private let shutterButton: UIButton = {
         let button = UIButton()
         button.roundCorners(40)
         button.makeBorder(.main, 10)
@@ -49,10 +55,15 @@ final class CameraView: ViewType {
     // MARK: - Setting
     
     private func setLayout() {
+        self.addSubview(cameraLayerView)
+        cameraLayerView.snp.makeConstraints {
+            $0.center.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(SizeLiteral.Screen.width * 4 / 3)
+        }
         self.addSubview(bottomView)
         bottomView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalToSuperview()
-            $0.height.equalTo(180)
+            $0.top.equalTo(self.cameraLayerView.snp.bottom)
         }
         self.bottomView.addSubview(shutterButton)
         shutterButton.snp.makeConstraints {
@@ -60,5 +71,12 @@ final class CameraView: ViewType {
             $0.centerX.equalToSuperview()
             $0.size.equalTo(80)
         }
+    }
+}
+
+extension CameraView {
+    func insertCameraLayer(layer: CALayer) {
+        self.cameraLayerView.layer.insertSublayer(layer, below: self.cameraLayerView.layer)
+        layer.frame = self.cameraLayerView.layer.bounds
     }
 }

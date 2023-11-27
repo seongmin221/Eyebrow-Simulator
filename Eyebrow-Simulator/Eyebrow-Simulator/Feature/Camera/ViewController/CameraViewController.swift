@@ -42,8 +42,8 @@ final class CameraViewController: ViewControllerType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bind(viewModel: self.viewModel)
         self.hideNavigationBar(true)
+        self.bind(viewModel: self.viewModel)
     }
     
     // MARK: - Setting
@@ -60,8 +60,7 @@ final class CameraViewController: ViewControllerType {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] layer in
                 guard let self = self else { return }
-                self.view.layer.insertSublayer(layer, below: self.view.layer)
-                layer.frame = self.view.layer.frame
+                self.baseView.insertCameraLayer(layer: layer)
             })
             .store(in: &self.cancelBag)
         
