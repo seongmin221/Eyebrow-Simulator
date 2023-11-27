@@ -18,6 +18,7 @@
 		3E3310BE2AD7CE2F002BEC99 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */; };
 		3E3310C02AD7DF95002BEC99 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */; };
 		3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */; };
+		3E4EA4B92B10DDE500AA6B81 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4EA4B82B10DDE500AA6B81 /* LoadingView.swift */; };
 		3E61DC852AD9724200325730 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61DC842AD9724200325730 /* CameraService.swift */; };
 		3ED85E662AE4B36500671826 /* SizeLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED85E652AE4B36500671826 /* SizeLiteral.swift */; };
 		3EF938EA2AE38E690096BE85 /* CameraResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF938E92AE38E690096BE85 /* CameraResultCoordinator.swift */; };
@@ -75,6 +76,7 @@
 		3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
 		3E3310BF2AD7DF95002BEC99 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
 		3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
+		3E4EA4B82B10DDE500AA6B81 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3E61DC842AD9724200325730 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		3ED85E652AE4B36500671826 /* SizeLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeLiteral.swift; sourceTree = "<group>"; };
 		3EF938E92AE38E690096BE85 /* CameraResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultCoordinator.swift; sourceTree = "<group>"; };
@@ -132,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E0CE56C2B122F7800CB0CC0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3E0F3C8C2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift */,
+				3E1C966B2ADD018A00FCF3AB /* CoordinatorType.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		3E0F3C922ADEAE55000FB3A8 /* Relations */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +180,14 @@
 				3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */,
 			);
 			path = Combine;
+			sourceTree = "<group>";
+		};
+		3E4EA4B72B10DDC900AA6B81 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3E4EA4B82B10DDE500AA6B81 /* LoadingView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		3E61DC802AD9723100325730 /* Camera */ = {
@@ -245,6 +264,7 @@
 				3EFB4A142AD05BAA006E3846 /* Protocols */,
 				3EFB4A132AD05BA6006E3846 /* Extensions */,
 				3E1C966A2ADD014400FCF3AB /* Coordinator */,
+				3E4EA4B72B10DDC900AA6B81 /* Common */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -360,11 +380,10 @@
 		3EFB4A142AD05BAA006E3846 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				3E0CE56C2B122F7800CB0CC0 /* Coordinator */,
 				3E0F3C922ADEAE55000FB3A8 /* Relations */,
 				3E0F3C932ADEB020000FB3A8 /* ViewType.swift */,
 				3EFB4A1D2AD05C84006E3846 /* ViewModelType.swift */,
-				3E1C966B2ADD018A00FCF3AB /* CoordinatorType.swift */,
-				3E0F3C8C2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -584,6 +603,7 @@
 				3E0F3C8D2ADE7BDA000FB3A8 /* CoordinatorDelegate.swift in Sources */,
 				3E61DC852AD9724200325730 /* CameraService.swift in Sources */,
 				3ED85E662AE4B36500671826 /* SizeLiteral.swift in Sources */,
+				3E4EA4B92B10DDE500AA6B81 /* LoadingView.swift in Sources */,
 				3E0F3C912ADEADCB000FB3A8 /* ViewControllerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

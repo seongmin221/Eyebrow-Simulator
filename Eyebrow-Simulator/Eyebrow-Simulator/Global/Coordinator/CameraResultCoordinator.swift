@@ -40,7 +40,7 @@ final class CameraResultCoordinator: CoordinatorType {
 
 extension CameraResultCoordinator: CameraResultViewCoordinatorDelegate {
     func backToCamera() {
-        
+        self.popViewController(withAnimation: true)
     }
     
     func toSimulator() {
