@@ -13,6 +13,7 @@ import SnapKit
 final class CameraView: ViewType {
     
     // MARK: - Properties
+    
     var shutterButtonTrigger: AnyPublisher<Void, Never> {
         return self.shutterButton
             .controlPublisher(for: .touchUpInside)

@@ -13,5 +13,13 @@ protocol CoordinatorType: AnyObject {
     
     var parentCoordinator: CoordinatorType? { get set }
     var childrenCoordinators: [CoordinatorType] { get set }
+    
     func show()
+    func popViewController(withAnimation isAnimated: Bool)
+}
+
+extension CoordinatorType {
+    func popViewController(withAnimation isAnimated: Bool) {
+        self.navigationController.popViewController(animated: isAnimated)
+    }
 }

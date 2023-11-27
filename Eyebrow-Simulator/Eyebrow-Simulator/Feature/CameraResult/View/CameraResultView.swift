@@ -30,11 +30,7 @@ final class CameraResultView: ViewType {
     
     // MARK: - UI Property
     
-    private let preivewImageView: UIImageView = {
-        let imageView = UIImageView()
-        // FIXME: image orientation
-        return imageView
-    }()
+    private let previewImageView = UIImageView()
     
     private let bottomView: UIView = {
         let view = UIView()
@@ -70,11 +66,6 @@ final class CameraResultView: ViewType {
     // MARK: - Setting
     
     private func setLayout() {
-        self.addSubview(preivewImageView)
-        preivewImageView.snp.makeConstraints {
-            $0.width.height.equalToSuperview()
-        }
-        
         self.addSubview(bottomView)
         bottomView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalToSuperview()
@@ -94,12 +85,19 @@ final class CameraResultView: ViewType {
             $0.trailing.equalToSuperview().inset(40)
             $0.size.equalTo(50)
         }
+        
+        self.addSubview(previewImageView)
+        previewImageView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(self.bottomView.snp.top)
+        }
     }
 }
 
 extension CameraResultView {
     func configurePreviewImage(with image: UIImage) {
-        self.preivewImageView.image = image
+        self.previewImageView.image = image
     }
     
     func animateContinueButton() {
