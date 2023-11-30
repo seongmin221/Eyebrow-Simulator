@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E07567E2B18774200E22A68 /* EyebrowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07567D2B18774200E22A68 /* EyebrowCell.swift */; };
+		3E0756832B18789600E22A68 /* EyebrowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0756822B18789600E22A68 /* EyebrowModel.swift */; };
 		3E0F3C8F2ADEAD70000FB3A8 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F3C8E2ADEAD70000FB3A8 /* ViewRepresentable.swift */; };
 		3E0F3C912ADEADCB000FB3A8 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F3C902ADEADCB000FB3A8 /* ViewControllerType.swift */; };
 		3E0F3C942ADEB020000FB3A8 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F3C932ADEB020000FB3A8 /* ViewType.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E07567D2B18774200E22A68 /* EyebrowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyebrowCell.swift; sourceTree = "<group>"; };
+		3E0756822B18789600E22A68 /* EyebrowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyebrowModel.swift; sourceTree = "<group>"; };
 		3E0F3C8E2ADEAD70000FB3A8 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 		3E0F3C902ADEADCB000FB3A8 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		3E0F3C932ADEB020000FB3A8 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -126,6 +130,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E0756802B18787C00E22A68 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				3E0756812B18788A00E22A68 /* Simluator */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		3E0756812B18788A00E22A68 /* Simluator */ = {
+			isa = PBXGroup;
+			children = (
+				3E0756822B18789600E22A68 /* EyebrowModel.swift */,
+			);
+			path = Simluator;
+			sourceTree = "<group>";
+		};
 		3E0F3C922ADEAE55000FB3A8 /* Relations */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +225,7 @@
 				3EFB49F42AD05A6F006E3846 /* App */,
 				3EFB49F32AD05A6A006E3846 /* Resource */,
 				3EFB49F22AD05A65006E3846 /* Global */,
+				3E0756802B18787C00E22A68 /* Entity */,
 				3EFB49F12AD05A5E006E3846 /* Feature */,
 				3EFB4A472AD66951006E3846 /* Service */,
 			);
@@ -304,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				3EFB4A0F2AD05B90006E3846 /* SimulatorView.swift */,
+				3E07567D2B18774200E22A68 /* EyebrowCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -555,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EFB4A1C2AD05BFF006E3846 /* UIView+.swift in Sources */,
+				3E07567E2B18774200E22A68 /* EyebrowCell.swift in Sources */,
 				3E3310C22AD7DFD8002BEC99 /* UIControl+Combine.swift in Sources */,
 				3EFB4A0A2AD05B78006E3846 /* CameraResultView.swift in Sources */,
 				3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */,
@@ -581,6 +604,7 @@
 				3E4EA4B92B10DDE500AA6B81 /* LoadingView.swift in Sources */,
 				3E0F3C912ADEADCB000FB3A8 /* ViewControllerType.swift in Sources */,
 				3E95FFDD2B183B2E0082BFDB /* HapticManager.swift in Sources */,
+				3E0756832B18789600E22A68 /* EyebrowModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
