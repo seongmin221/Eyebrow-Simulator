@@ -47,6 +47,16 @@ final class CameraResultViewController: ViewControllerType {
     
     // MARK: - Setting
     
+    private func transformedOutput() -> ViewModel.Output {
+        let input = ViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            continueTrigger: self.baseView.continueButtonTrigger,
+            retakeTrigger: self.baseView.retakeButtonTrigger
+        )
+        
+        return self.viewModel.transform(input: input)
+    }
+    
     func bindUI() {
         self.viewDidAppearPublisher
             .delay(for: .seconds(1), scheduler: DispatchQueue.main)
@@ -58,14 +68,7 @@ final class CameraResultViewController: ViewControllerType {
     }
     
     func bindViewModel() {
-        
-        let input = ViewModel.Input(
-            viewDidLoad: self.viewDidLoadPublisher,
-            continueTrigger: self.baseView.continueButtonTrigger,
-            retakeTrigger: self.baseView.retakeButtonTrigger
-        )
-        
-        let output = viewModel.transform(input)
+        let output = transformedOutput()
         
         output.takenPhoto
             .sink(receiveValue: { [weak self] takenPhoto in
@@ -77,9 +80,15 @@ final class CameraResultViewController: ViewControllerType {
         output.chosenPhoto
             .sink(receiveValue: { [weak self] chosenPhoto in
                 guard let self = self else { return }
-                // TODO: navigate to simulator
+                self.pushToSimulator(with: chosenPhoto)
             })
             .store(in: &self.cancelBag)
     }
     
+}
+
+extension CameraResultViewController {
+    private func pushToSimulator(with image: UIImage) {
+        // TODO: navigate to simulator
+    }
 }

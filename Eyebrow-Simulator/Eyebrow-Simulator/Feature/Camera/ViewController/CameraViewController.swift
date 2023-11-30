@@ -12,9 +12,10 @@ final class CameraViewController: ViewControllerType {
     
     // MARK: - Property
     
-    var baseView: CameraView = CameraView()
     var viewModel: CameraViewModel
     var cancelBag: Set<AnyCancellable> = Set()
+    
+    var baseView: CameraView = CameraView()
     
     // MARK: - Life Cycle
     
@@ -42,30 +43,29 @@ final class CameraViewController: ViewControllerType {
     
     // MARK: - Setting
     
-    
-    
-    func bindUI(_ output: ViewModel.Output) {
-        output.photoResult
-            .receive(on: DispatchQueue.main)
-            .sink { [self] photo in
-                self.pushToResult(with: photo)
-            }
-            .store(in: &self.cancelBag)
-    }
-    
     func bindViewModel() {
         let input = CameraViewModel.Input(
             viewDidLoad: self.viewDidLoadPublisher,
-            photoTrigger: self.baseView.shutterButtonTrigger
+            viewWillAppear: self.viewWillAppearPublisher,
+            photoTrigger: self.baseView.shutterButtonTrigger,
+            viewWillDisappear: self.viewWillDisappearPublisher
         )
+        let output = self.viewModel.transform(input: input)
         
-        let output = self.viewModel.transform(input)
+        self.viewModel.handle(input: input)
         
         output.photoPreviewLayer
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] layer in
                 guard let self = self else { return }
                 self.baseView.insertCameraLayer(layer: layer)
+            })
+            .store(in: &self.cancelBag)
+        
+        output.photoResult
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [self] photo in
+                self.pushToResult(with: photo)
             })
             .store(in: &self.cancelBag)
     }

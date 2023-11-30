@@ -35,7 +35,7 @@ final class CameraResultViewModel: ViewModelType {
     
     // MARK: - Transform
     
-    func transform(_ input: Input) -> Output {
+    func transform(input: Input) -> Output {
         let takenPhoto = input.viewDidLoad
             .map { [weak self] _ -> UIImage in
                 guard let self = self else { return UIImage() }

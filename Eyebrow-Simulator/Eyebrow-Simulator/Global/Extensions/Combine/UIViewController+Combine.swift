@@ -34,4 +34,10 @@ extension UIViewController {
             .eraseToAnyPublisher()
     }
     
+    var viewWillDisappearPublisher: AnyPublisher<Void, Never> {
+        return Just(#selector(self.viewWillDisappear(_:)))
+            .print()
+            .map { _ in Void() }
+            .eraseToAnyPublisher()
+    }
 }
