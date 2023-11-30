@@ -8,19 +8,14 @@
 import Combine
 import UIKit
 
-protocol CameraCoordinatorDelegate: CoordinatorDelegate {
-    func toCameraResultView(with image: UIImage)
-}
-
 final class CameraViewController: ViewControllerType {
     
     // MARK: - Property
     
-    weak var coordinator: CameraCoordinatorDelegate?
-    
-    var baseView: CameraView = CameraView()
     var viewModel: CameraViewModel
     var cancelBag: Set<AnyCancellable> = Set()
+    
+    var baseView: CameraView = CameraView()
     
     // MARK: - Life Cycle
     
@@ -43,18 +38,21 @@ final class CameraViewController: ViewControllerType {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideNavigationBar(true)
-        self.bind(viewModel: self.viewModel)
+        self.bindViewModel()
     }
     
     // MARK: - Setting
     
-    func bind(viewModel: CameraViewModel) {
+    func bindViewModel() {
         let input = CameraViewModel.Input(
             viewDidLoad: self.viewDidLoadPublisher,
-            photoTrigger: self.baseView.shutterButtonTrigger
+            viewWillAppear: self.viewWillAppearPublisher,
+            photoTrigger: self.baseView.shutterButtonTrigger,
+            viewWillDisappear: self.viewWillDisappearPublisher
         )
+        let output = self.viewModel.transform(input: input)
         
-        let output = self.viewModel.transform(input)
+        self.viewModel.handle(input: input)
         
         output.photoPreviewLayer
             .receive(on: DispatchQueue.main)
@@ -66,9 +64,18 @@ final class CameraViewController: ViewControllerType {
         
         output.photoResult
             .receive(on: DispatchQueue.main)
-            .sink { [self] photo in
-                self.coordinator?.toCameraResultView(with: photo)
-            }
+            .sink(receiveValue: { [self] photo in
+                self.pushToResult(with: photo)
+            })
             .store(in: &self.cancelBag)
+    }
+}
+
+extension CameraViewController {
+    private func pushToResult(with ciImage: CIImage) {
+        let image = UIImage(ciImage: ciImage)
+        let viewModel = CameraResultViewModel(image: image)
+        let viewController = CameraResultViewController(viewModel: viewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

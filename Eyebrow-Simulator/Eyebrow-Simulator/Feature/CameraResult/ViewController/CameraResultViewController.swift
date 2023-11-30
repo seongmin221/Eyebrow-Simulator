@@ -8,19 +8,12 @@
 import Combine
 import UIKit
 
-protocol CameraResultViewCoordinatorDelegate: CoordinatorDelegate {
-    func backToCamera()
-    func toSimulator()
-}
-
 final class CameraResultViewController: ViewControllerType {
     
     typealias View = CameraResultView
     typealias ViewModel = CameraResultViewModel
     
     // MARK: - Property
-    
-    weak var coordinator: CameraResultViewCoordinatorDelegate?
     
     var viewModel: CameraResultViewModel
     var cancelBag: Set<AnyCancellable> = Set()
@@ -49,10 +42,20 @@ final class CameraResultViewController: ViewControllerType {
         super.viewDidLoad()
         self.hideNavigationBar(false)
         self.bindUI()
-        self.bind(viewModel: self.viewModel)
+        self.bindViewModel()
     }
     
     // MARK: - Setting
+    
+    private func transformedOutput() -> ViewModel.Output {
+        let input = ViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            continueTrigger: self.baseView.continueButtonTrigger,
+            retakeTrigger: self.baseView.retakeButtonTrigger
+        )
+        
+        return self.viewModel.transform(input: input)
+    }
     
     func bindUI() {
         self.viewDidAppearPublisher
@@ -64,15 +67,8 @@ final class CameraResultViewController: ViewControllerType {
             .store(in: &self.cancelBag)
     }
     
-    func bind(viewModel: CameraResultViewModel) {
-        
-        let input = ViewModel.Input(
-            viewDidLoad: self.viewDidLoadPublisher,
-            continueTrigger: self.baseView.continueButtonTrigger,
-            retakeTrigger: self.baseView.retakeButtonTrigger
-        )
-        
-        let output = viewModel.transform(input)
+    func bindViewModel() {
+        let output = transformedOutput()
         
         output.takenPhoto
             .sink(receiveValue: { [weak self] takenPhoto in
@@ -84,9 +80,15 @@ final class CameraResultViewController: ViewControllerType {
         output.chosenPhoto
             .sink(receiveValue: { [weak self] chosenPhoto in
                 guard let self = self else { return }
-                // TODO: navigate to simulator
+                self.pushToSimulator(with: chosenPhoto)
             })
             .store(in: &self.cancelBag)
     }
     
+}
+
+extension CameraResultViewController {
+    private func pushToSimulator(with image: UIImage) {
+        // TODO: navigate to simulator
+    }
 }

@@ -82,6 +82,11 @@ extension CameraService {
     func takePhoto() {
         self.hasTakenPhoto = true
     }
+    
+    func stopSession() {
+        self.captureSession?.stopRunning()
+        self.takenPhoto = nil
+    }
 }
 
 
@@ -94,5 +99,8 @@ extension CameraService: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         self.takenPhoto = CIImage(cvImageBuffer: cvBuffer)
         self.hasTakenPhoto = false
+        
+        do { try sampleBuffer.invalidate() }
+        catch { print("buffer cannot invalidate") }
     }
 }
