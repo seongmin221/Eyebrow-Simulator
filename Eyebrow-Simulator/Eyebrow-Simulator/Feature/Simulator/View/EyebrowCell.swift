@@ -5,4 +5,43 @@
 //  Created by 이성민 on 11/30/23.
 //
 
-import Foundation
+import UIKit
+
+final class EyebrowCell: UICollectionViewCell {
+    
+    // MARK: - Property
+    
+    static let identifier = "EyebrowCell"
+    
+    // MARK: - UI Property
+    
+    private let eyebrowImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    // MARK: - Life Cycle
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        self.setLayout()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Setting
+    
+    private func setLayout() {
+        
+    }
+}
+
+extension EyebrowCell {
+    func load(eyebrow: EyebrowModel) {
+        
+    }
+}
