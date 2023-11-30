@@ -7,7 +7,7 @@
 
 import AVFoundation
 import Combine
-import UIKit
+import CoreImage
 
 final class CameraViewModel: ViewModelType {
     
@@ -32,10 +32,10 @@ final class CameraViewModel: ViewModelType {
     
     struct Output {
         let photoPreviewLayer: AnyPublisher<PreviewLayer, Never>
-        let photoResult: AnyPublisher<UIImage, Never>
+        let photoResult: AnyPublisher<CIImage, Never>
         
         init(photoPreviewLayer: AnyPublisher<PreviewLayer, Never>,
-             photoResult: AnyPublisher<UIImage, Never>) {
+             photoResult: AnyPublisher<CIImage, Never>) {
             self.photoPreviewLayer = photoPreviewLayer
             self.photoResult = photoResult
         }
@@ -57,10 +57,10 @@ final class CameraViewModel: ViewModelType {
             .eraseToAnyPublisher()
             
         let photoResult = input.photoTrigger
-            .map { [weak self] _ -> UIImage in
+            .map { [weak self] _ -> CIImage in
                 self?.cameraService.takePhoto()
-                guard let ciImage = self?.cameraService.takenPhoto else { return UIImage() }
-                return UIImage(ciImage: ciImage)
+                guard let ciImage = self?.cameraService.takenPhoto else { return CIImage() }
+                return ciImage
             }
             .eraseToAnyPublisher()
         

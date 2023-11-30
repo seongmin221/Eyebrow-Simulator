@@ -12,5 +12,5 @@ protocol ViewModelBindable {
     associatedtype ViewModel: ViewModelType
     var viewModel: ViewModel { get set }
     var cancelBag: Set<AnyCancellable> { get set }
-    func bind(viewModel: ViewModel)
+    func bindViewModel()
 }

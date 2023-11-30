@@ -8,15 +8,9 @@
 import Combine
 import UIKit
 
-protocol CameraCoordinatorDelegate: CoordinatorDelegate {
-    func toCameraResultView(with image: UIImage)
-}
-
 final class CameraViewController: ViewControllerType {
     
     // MARK: - Property
-    
-    weak var coordinator: CameraCoordinatorDelegate?
     
     var baseView: CameraView = CameraView()
     var viewModel: CameraViewModel
@@ -43,12 +37,23 @@ final class CameraViewController: ViewControllerType {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideNavigationBar(true)
-        self.bind(viewModel: self.viewModel)
+        self.bindViewModel()
     }
     
     // MARK: - Setting
     
-    func bind(viewModel: CameraViewModel) {
+    
+    
+    func bindUI(_ output: ViewModel.Output) {
+        output.photoResult
+            .receive(on: DispatchQueue.main)
+            .sink { [self] photo in
+                self.pushToResult(with: photo)
+            }
+            .store(in: &self.cancelBag)
+    }
+    
+    func bindViewModel() {
         let input = CameraViewModel.Input(
             viewDidLoad: self.viewDidLoadPublisher,
             photoTrigger: self.baseView.shutterButtonTrigger
@@ -63,12 +68,14 @@ final class CameraViewController: ViewControllerType {
                 self.baseView.insertCameraLayer(layer: layer)
             })
             .store(in: &self.cancelBag)
-        
-        output.photoResult
-            .receive(on: DispatchQueue.main)
-            .sink { [self] photo in
-                self.coordinator?.toCameraResultView(with: photo)
-            }
-            .store(in: &self.cancelBag)
+    }
+}
+
+extension CameraViewController {
+    private func pushToResult(with ciImage: CIImage) {
+        let image = UIImage(ciImage: ciImage)
+        let viewModel = CameraResultViewModel(image: image)
+        let viewController = CameraResultViewController(viewModel: viewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

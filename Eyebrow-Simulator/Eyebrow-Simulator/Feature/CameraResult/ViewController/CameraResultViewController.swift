@@ -8,19 +8,12 @@
 import Combine
 import UIKit
 
-protocol CameraResultViewCoordinatorDelegate: CoordinatorDelegate {
-    func backToCamera()
-    func toSimulator()
-}
-
 final class CameraResultViewController: ViewControllerType {
     
     typealias View = CameraResultView
     typealias ViewModel = CameraResultViewModel
     
     // MARK: - Property
-    
-    weak var coordinator: CameraResultViewCoordinatorDelegate?
     
     var viewModel: CameraResultViewModel
     var cancelBag: Set<AnyCancellable> = Set()
@@ -49,7 +42,7 @@ final class CameraResultViewController: ViewControllerType {
         super.viewDidLoad()
         self.hideNavigationBar(false)
         self.bindUI()
-        self.bind(viewModel: self.viewModel)
+        self.bindViewModel()
     }
     
     // MARK: - Setting
@@ -64,7 +57,7 @@ final class CameraResultViewController: ViewControllerType {
             .store(in: &self.cancelBag)
     }
     
-    func bind(viewModel: CameraResultViewModel) {
+    func bindViewModel() {
         
         let input = ViewModel.Input(
             viewDidLoad: self.viewDidLoadPublisher,
