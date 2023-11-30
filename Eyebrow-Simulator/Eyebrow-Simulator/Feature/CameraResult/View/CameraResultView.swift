@@ -33,7 +33,6 @@ final class CameraResultView: ViewType {
     private let previewImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-//        imageView.
         return imageView
     }()
     
