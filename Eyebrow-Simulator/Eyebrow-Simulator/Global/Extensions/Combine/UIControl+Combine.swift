@@ -11,15 +11,14 @@ import UIKit
 extension UIControl {
     func controlPublisher(for event: UIControl.Event) -> UIControl.EventPublisher {
         return UIControl.EventPublisher(control: self, event: event)
-      }
-
+    }
+    
     struct EventPublisher: Publisher {
         typealias Output = UIControl
         typealias Failure = Never
 
         let control: UIControl
         let event: UIControl.Event
-
         func receive<S>(subscriber: S)
         where S: Subscriber, Never == S.Failure, UIControl == S.Input {
             let subscription = EventSubscription(
@@ -42,8 +41,7 @@ extension UIControl {
             self.control = control
             self.subscriber = subscriber
             self.event = event
-
-            control.addTarget(self, action: #selector(self.eventDidOccur), for: event)
+            self.control.addTarget(self, action: #selector(eventDidOccur), for: event)
         }
 
         func request(_ demand: Subscribers.Demand) {}

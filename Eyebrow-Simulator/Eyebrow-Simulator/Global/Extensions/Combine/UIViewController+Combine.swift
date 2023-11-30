@@ -21,4 +21,17 @@ extension UIViewController {
             .map { _ in Void() }
             .eraseToAnyPublisher()
     }
+    
+    var viewIsAppearingPublisher: AnyPublisher<Void, Never> {
+        return Just(#selector(self.viewIsAppearing(_:)))
+            .map { _ in Void() }
+            .eraseToAnyPublisher()
+    }
+    
+    var viewDidAppearPublisher: AnyPublisher<Void, Never> {
+        return Just(#selector(self.viewDidAppear(_:)))
+            .map { _ in Void() }
+            .eraseToAnyPublisher()
+    }
+    
 }

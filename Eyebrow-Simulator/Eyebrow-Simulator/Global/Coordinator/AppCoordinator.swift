@@ -27,18 +27,24 @@ final class AppCoordinator: CoordinatorType {
     }
 }
 
-// MARK: - Back to Parent Coordinator
-
-//extension AppCoordinator {
-//    
-//    func backToParent(from child: CoordinatorType) {
-//        for (index, coordinator) in self.childrenCoordinators.enumerated() {
-//            guard coordinator === child else { continue }
-//            self.childrenCoordinators.remove(at: index)
-//            break
-//        }
-//    }
-//}
+extension AppCoordinator {
+    
+    func addChild(_ child: CoordinatorType) {
+        self.childrenCoordinators.append(child)
+    }
+    
+    func removeChild(_ child: CoordinatorType) {
+        for (index, coordinator) in self.childrenCoordinators.enumerated() {
+            if coordinator === child {
+                self.childrenCoordinators.remove(at: index)
+            }
+        }
+    }
+    
+    func popViewController(withAnimation isAnimated: Bool) {
+        self.navigationController.popViewController(animated: isAnimated)
+    }
+}
 
 // MARK: - To Child Coordinators
 
@@ -48,6 +54,6 @@ extension AppCoordinator {
         let child = CameraCoordinator(navigationController: self.navigationController)
         child.parentCoordinator = self
         child.show()
-        self.childrenCoordinators.append(child)
+        self.addChild(child)
     }
 }

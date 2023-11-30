@@ -23,9 +23,8 @@ final class CameraViewModel: ViewModelType {
         let viewDidLoad: AnyPublisher<Void, Never>
         let photoTrigger: AnyPublisher<Void, Never>
         
-        init(
-            _ viewDidLoad: AnyPublisher<Void, Never>,
-            _ photoTrigger: AnyPublisher<Void, Never>) {
+        init(viewDidLoad: AnyPublisher<Void, Never>,
+             photoTrigger: AnyPublisher<Void, Never>) {
             self.viewDidLoad = viewDidLoad
             self.photoTrigger = photoTrigger
         }
@@ -35,8 +34,8 @@ final class CameraViewModel: ViewModelType {
         let photoPreviewLayer: AnyPublisher<PreviewLayer, Never>
         let photoResult: AnyPublisher<UIImage, Never>
         
-        init(_ photoPreviewLayer: AnyPublisher<PreviewLayer, Never>,
-             _ photoResult: AnyPublisher<UIImage, Never>) {
+        init(photoPreviewLayer: AnyPublisher<PreviewLayer, Never>,
+             photoResult: AnyPublisher<UIImage, Never>) {
             self.photoPreviewLayer = photoPreviewLayer
             self.photoResult = photoResult
         }
@@ -65,6 +64,6 @@ final class CameraViewModel: ViewModelType {
             }
             .eraseToAnyPublisher()
         
-        return Output(photoPreviewLayer, photoResult)
+        return Output(photoPreviewLayer: photoPreviewLayer, photoResult: photoResult)
     }
 }

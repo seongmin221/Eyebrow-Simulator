@@ -25,10 +25,8 @@ final class CameraViewController: ViewControllerType {
     // MARK: - Life Cycle
     
     init(
-//        view: CameraView,
         viewModel: CameraViewModel
     ) {
-//        self.baseView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,28 +42,25 @@ final class CameraViewController: ViewControllerType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bind(viewModel: self.viewModel)
         self.hideNavigationBar(true)
+        self.bind(viewModel: self.viewModel)
     }
     
     // MARK: - Setting
     
     func bind(viewModel: CameraViewModel) {
-        let viewDidLoad = self.viewDidLoadPublisher
-        let photoTrigger = self.baseView.shutterButton
-            .controlPublisher(for: .touchUpInside)
-            .map { _ in Void() }
-            .eraseToAnyPublisher()
+        let input = CameraViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            photoTrigger: self.baseView.shutterButtonTrigger
+        )
         
-        let input = CameraViewModel.Input(viewDidLoad, photoTrigger)
         let output = self.viewModel.transform(input)
         
         output.photoPreviewLayer
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] layer in
                 guard let self = self else { return }
-                self.view.layer.insertSublayer(layer, below: self.view.layer)
-                layer.frame = self.view.layer.frame
+                self.baseView.insertCameraLayer(layer: layer)
             })
             .store(in: &self.cancelBag)
         

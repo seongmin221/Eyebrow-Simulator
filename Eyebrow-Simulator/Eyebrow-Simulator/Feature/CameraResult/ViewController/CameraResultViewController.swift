@@ -22,20 +22,18 @@ final class CameraResultViewController: ViewControllerType {
     
     weak var coordinator: CameraResultViewCoordinatorDelegate?
     
-    var baseView: CameraResultView
     var viewModel: CameraResultViewModel
     var cancelBag: Set<AnyCancellable> = Set()
+    
+    var baseView = CameraResultView()
     
     // MARK: - Life Cycle
     
     init(
-        view: CameraResultView,
         viewModel: CameraResultViewModel
     ) {
-        self.baseView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.hideNavigationBar(false)
     }
     
     @available(*, unavailable)
@@ -47,8 +45,48 @@ final class CameraResultViewController: ViewControllerType {
         self.view = baseView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideNavigationBar(false)
+        self.bindUI()
+        self.bind(viewModel: self.viewModel)
+    }
+    
     // MARK: - Setting
     
-    func bind(viewModel: CameraResultViewModel) {}
+    func bindUI() {
+        self.viewDidAppearPublisher
+            .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                self.baseView.animateContinueButton()
+            })
+            .store(in: &self.cancelBag)
+    }
+    
+    func bind(viewModel: CameraResultViewModel) {
+        
+        let input = ViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher,
+            continueTrigger: self.baseView.continueButtonTrigger,
+            retakeTrigger: self.baseView.retakeButtonTrigger
+        )
+        
+        let output = viewModel.transform(input)
+        
+        output.takenPhoto
+            .sink(receiveValue: { [weak self] takenPhoto in
+                guard let self = self else { return }
+                self.baseView.configurePreviewImage(with: takenPhoto)
+            })
+            .store(in: &self.cancelBag)
+        
+        output.chosenPhoto
+            .sink(receiveValue: { [weak self] chosenPhoto in
+                guard let self = self else { return }
+                // TODO: navigate to simulator
+            })
+            .store(in: &self.cancelBag)
+    }
     
 }
