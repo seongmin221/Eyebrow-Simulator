@@ -27,6 +27,14 @@ final class SimulatorView: UIView {
     
     let eyebrowCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     
+    private let applyButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("적용하기", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 22)
+        return button
+    }()
+    
     // MARK: - Life Cycle
     
     init() {
@@ -58,12 +66,22 @@ final class SimulatorView: UIView {
         
         bottomView.addSubview(self.eyebrowCollectionView)
         eyebrowCollectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview().inset(20)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(55)
+        }
+        
+        bottomView.addSubview(self.applyButton)
+        applyButton.snp.makeConstraints {
+            $0.top.equalTo(self.eyebrowCollectionView.snp.bottom).offset(12)
+            $0.centerX.equalToSuperview()
         }
     }
     
     private func configUI() {
         self.eyebrowCollectionView.collectionViewLayout = createLayout()
+        self.eyebrowCollectionView.backgroundColor = .clear
+        self.eyebrowCollectionView.showsHorizontalScrollIndicator = false
     }
 }
 
@@ -87,6 +105,7 @@ extension SimulatorView {
             
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 24
+            section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
             
             return section
         }, configuration: config)
