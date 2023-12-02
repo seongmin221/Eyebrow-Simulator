@@ -53,25 +53,53 @@ final class SimulatorViewController: ViewControllerType {
         self.bindViewModel()
         self.setDataSource()
         self.setSnapshot()
+        self.setDelegate()
     }
     
     // MARK: - Setting
     
-    func bindViewModel() {
-        
+    private func setDelegate() {
+        self.baseView.eyebrowCollectionView.delegate = self
     }
     
-    func bind(cell: Cell) {
+    private func transformedOutput() -> ViewModel.Output {
+        let input = ViewModel.Input(viewDidLoad: self.viewDidLoadPublisher)
+        return self.viewModel.transform(input: input)
+    }
+    
+    func bindViewModel() {
+        let output = transformedOutput()
         
+        output.eyebrowPosition
+            .sink(receiveValue: { _ in
+                // FIXME: eyebrowposition 받아와지면 해당 값으로 적용
+                self.baseView.placeEyebrowView(on: .init(x: 100, y: 100, width: 300, height: 300))
+            })
+            .store(in: &self.cancelBag)
     }
 }
+
+// MARK: - Simulator
+
+extension SimulatorViewController {
+    private func addEyebrowView(on frame: CGRect) {
+        let view = UIView(frame: frame)
+        view.backgroundColor = .red
+        self.baseView.addSubview(view)
+    }
+    
+    private func applyEyebrow(_ eyebrow: EyebrowModel) {
+        self.baseView.configureEyebrow(to: eyebrow)
+    }
+}
+
+// MARK: - CollectionView Datasource
 
 extension SimulatorViewController {
     
     private func setDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<Cell, Model> { cell, _, eyebrow in
             cell.load(eyebrow: eyebrow)
-            self.bind(cell: cell)
         }
         
         self.dataSource = DataSource(
@@ -91,5 +119,14 @@ extension SimulatorViewController {
         self.snapshot.appendSections([.main])
         self.snapshot.appendItems(EyebrowModel.eyebrows, toSection: .main)
         self.dataSource.apply(self.snapshot)
+    }
+}
+
+// MARK: - CollectionView Delegate
+
+extension SimulatorViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedCell = collectionView.visibleCells[indexPath.item] as? EyebrowCell else { return }
+        self.applyEyebrow(selectedCell.eyebrowModel)
     }
 }

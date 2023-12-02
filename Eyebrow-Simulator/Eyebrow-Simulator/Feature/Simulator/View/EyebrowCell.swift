@@ -9,6 +9,10 @@ import UIKit
 
 final class EyebrowCell: UICollectionViewCell {
     
+    // MARK: - Property
+    
+    var eyebrowModel: EyebrowModel = EyebrowModel(image: UIImage())
+    
     // MARK: - UI Property
     
     private let eyebrowImageView: UIImageView = {
@@ -41,6 +45,7 @@ final class EyebrowCell: UICollectionViewCell {
 
 extension EyebrowCell {
     func load(eyebrow: EyebrowModel) {
+        self.eyebrowModel = eyebrow
         self.eyebrowImageView.image = eyebrow.image
     }
 }

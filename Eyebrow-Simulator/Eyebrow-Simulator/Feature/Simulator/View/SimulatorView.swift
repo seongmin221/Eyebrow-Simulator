@@ -5,11 +5,16 @@
 //  Created by 이성민 on 10/7/23.
 //
 
+import Combine
 import UIKit
 
 final class SimulatorView: UIView {
     
     // MARK: - Properties
+    
+    var applyButtonTrigger: AnyPublisher<Void, Never> {
+        return self.applyButton.tapPublisher
+    }
     
     // MARK: - UI Properties
     
@@ -17,6 +22,13 @@ final class SimulatorView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private let eyebrowView: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
+        view.contentMode = .scaleToFill
+        return view
     }()
     
     private let bottomView: UIView = {
@@ -79,11 +91,28 @@ final class SimulatorView: UIView {
     }
     
     private func configUI() {
+        self.backgroundColor = .menuWhite
+        
         self.eyebrowCollectionView.collectionViewLayout = createLayout()
         self.eyebrowCollectionView.backgroundColor = .clear
         self.eyebrowCollectionView.showsHorizontalScrollIndicator = false
     }
 }
+
+// MARK: - Simulator
+
+extension SimulatorView {
+    func placeEyebrowView(on frame: CGRect) {
+        self.addSubview(eyebrowView)
+        self.eyebrowView.frame = frame
+    }
+    
+    func configureEyebrow(to eyebrow: EyebrowModel) {
+        self.eyebrowView.image = eyebrow.image
+    }
+}
+
+// MARK: - CollectionView Layout
 
 extension SimulatorView {
     private func createLayout() -> UICollectionViewLayout {
