@@ -50,10 +50,10 @@ final class SimulatorViewController: ViewControllerType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setDelegate()
         self.bindViewModel()
         self.setDataSource()
         self.setSnapshot()
-        self.setDelegate()
     }
     
     // MARK: - Setting
@@ -63,7 +63,9 @@ final class SimulatorViewController: ViewControllerType {
     }
     
     private func transformedOutput() -> ViewModel.Output {
-        let input = ViewModel.Input(viewDidLoad: self.viewDidLoadPublisher)
+        let input = ViewModel.Input(
+            viewDidLoad: self.viewDidLoadPublisher
+        )
         return self.viewModel.transform(input: input)
     }
     
@@ -71,9 +73,13 @@ final class SimulatorViewController: ViewControllerType {
         let output = transformedOutput()
         
         output.eyebrowPosition
-            .sink(receiveValue: { _ in
+            .sink(receiveValue: { [weak self] _ in
                 // FIXME: eyebrowposition 받아와지면 해당 값으로 적용
-                self.baseView.placeEyebrowView(on: .init(x: 100, y: 100, width: 300, height: 300))
+                guard let self = self else { return }
+                self.baseView.placeEyebrowView(
+                    left: .init(x: 20, y: 100, width: 50, height: 25),
+                    right: .init(x: 100, y: 100, width: 50, height: 25)
+                )
             })
             .store(in: &self.cancelBag)
     }
@@ -122,11 +128,9 @@ extension SimulatorViewController {
     }
 }
 
-// MARK: - CollectionView Delegate
-
 extension SimulatorViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedCell = collectionView.visibleCells[indexPath.item] as? EyebrowCell else { return }
-        self.applyEyebrow(selectedCell.eyebrowModel)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? EyebrowCell else { return }
+        self.applyEyebrow(cell.eyebrowModel)
     }
 }
