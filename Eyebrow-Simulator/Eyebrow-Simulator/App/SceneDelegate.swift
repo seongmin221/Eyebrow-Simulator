@@ -15,8 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         
-        let viewModel = CameraViewModel()
-        let viewController = CameraViewController(viewModel: viewModel)
+//        let viewModel = CameraViewModel()
+//        let viewController = CameraViewController(viewModel: viewModel)
+        let vm = SimulatorViewModel()
+        let viewController = SimulatorViewController(viewModel: vm)
         
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window?.rootViewController = navigationController
