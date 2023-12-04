@@ -12,9 +12,12 @@ final class SimulatorView: UIView {
     
     // MARK: - Properties
     
-    var applyButtonTrigger: AnyPublisher<Void, Never> {
-        return self.applyButton.tapPublisher
-    }
+//    var selectedIndexPaths: AnyPublisher<[IndexPath]?, Never> {
+//        return self.eyebrowCollectionView
+//            .publisher(for: \.indexPathsForSelectedItems)
+//            .print("V: selectedIndexPaths")
+//            .eraseToAnyPublisher()
+//    }
     
     // MARK: - UI Properties
     
@@ -24,7 +27,14 @@ final class SimulatorView: UIView {
         return imageView
     }()
     
-    private let eyebrowView: UIImageView = {
+    private let leftEyebrowView: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
+        view.contentMode = .scaleToFill
+        return view
+    }()
+    
+    private let rightEyebrowView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .clear
         view.contentMode = .scaleToFill
@@ -102,13 +112,17 @@ final class SimulatorView: UIView {
 // MARK: - Simulator
 
 extension SimulatorView {
-    func placeEyebrowView(on frame: CGRect) {
-        self.addSubview(eyebrowView)
-        self.eyebrowView.frame = frame
+    func placeEyebrowView(left leftFrame: CGRect, right rightFrame: CGRect) {
+        self.addSubview(leftEyebrowView)
+        self.leftEyebrowView.frame = leftFrame
+        
+        self.addSubview(rightEyebrowView)
+        self.rightEyebrowView.frame = rightFrame
     }
     
     func configureEyebrow(to eyebrow: EyebrowModel) {
-        self.eyebrowView.image = eyebrow.image
+        self.leftEyebrowView.image = eyebrow.image
+        self.rightEyebrowView.image = eyebrow.image.withHorizontallyFlippedOrientation()
     }
 }
 
