@@ -11,7 +11,6 @@
 		3E0756832B18789600E22A68 /* EyebrowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0756822B18789600E22A68 /* EyebrowModel.swift */; };
 		3E0756872B199B8100E22A68 /* EyebrowPositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0756862B199B8100E22A68 /* EyebrowPositionModel.swift */; };
 		3E0756892B199E2900E22A68 /* SimulatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0756882B199E2900E22A68 /* SimulatorError.swift */; };
-		3E07568D2B19B59600E22A68 /* UICollectionView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07568C2B19B59600E22A68 /* UICollectionView+Combine.swift */; };
 		3E0F3C8F2ADEAD70000FB3A8 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F3C8E2ADEAD70000FB3A8 /* ViewRepresentable.swift */; };
 		3E0F3C912ADEADCB000FB3A8 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F3C902ADEADCB000FB3A8 /* ViewControllerType.swift */; };
 		3E0F3C942ADEB020000FB3A8 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F3C932ADEB020000FB3A8 /* ViewType.swift */; };
@@ -69,7 +68,6 @@
 		3E0756822B18789600E22A68 /* EyebrowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyebrowModel.swift; sourceTree = "<group>"; };
 		3E0756862B199B8100E22A68 /* EyebrowPositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyebrowPositionModel.swift; sourceTree = "<group>"; };
 		3E0756882B199E2900E22A68 /* SimulatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorError.swift; sourceTree = "<group>"; };
-		3E07568C2B19B59600E22A68 /* UICollectionView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Combine.swift"; sourceTree = "<group>"; };
 		3E0F3C8E2ADEAD70000FB3A8 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 		3E0F3C902ADEADCB000FB3A8 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		3E0F3C932ADEB020000FB3A8 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			children = (
 				3E3310BD2AD7CE2F002BEC99 /* UIViewController+Combine.swift */,
 				3E3310C12AD7DFD8002BEC99 /* UIControl+Combine.swift */,
-				3E07568C2B19B59600E22A68 /* UICollectionView+Combine.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -605,7 +602,6 @@
 				3EFB4A102AD05B90006E3846 /* SimulatorView.swift in Sources */,
 				3E0756872B199B8100E22A68 /* EyebrowPositionModel.swift in Sources */,
 				3EFB4A1E2AD05C84006E3846 /* ViewModelType.swift in Sources */,
-				3E07568D2B19B59600E22A68 /* UICollectionView+Combine.swift in Sources */,
 				3E61DC852AD9724200325730 /* CameraService.swift in Sources */,
 				3E0756892B199E2900E22A68 /* SimulatorError.swift in Sources */,
 				3ED85E662AE4B36500671826 /* SizeLiteral.swift in Sources */,

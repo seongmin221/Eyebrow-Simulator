@@ -9,6 +9,10 @@ import UIKit
 
 struct EyebrowModel: Hashable {
     let image: UIImage
+    
+    init(image: UIImage = .init()) {
+        self.image = image
+    }
 }
 
 extension EyebrowModel {
