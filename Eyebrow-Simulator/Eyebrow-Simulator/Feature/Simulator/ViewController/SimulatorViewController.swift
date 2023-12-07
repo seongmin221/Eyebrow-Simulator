@@ -89,18 +89,32 @@ final class SimulatorViewController: ViewControllerType {
             .store(in: &self.cancelBag)
         
 //        output.leftEyebrowBox
-//            .sink(receiveValue: { [weak self] box in
+//            .sink(receiveValue: { [weak self] points in
 //                guard let self else { return }
-//                self.baseView.placeLeftEyebrow(on: box)
+//                self.baseView.addPoints(points)
 //            })
 //            .store(in: &self.cancelBag)
 //        
 //        output.rightEyebrowBox
-//            .sink(receiveValue: { [weak self] box in
+//            .sink(receiveValue: { [weak self] points in
 //                guard let self else { return }
-//                self.baseView.placeRightEyebrow(on: box)
+//                self.baseView.addPoints(points)
 //            })
 //            .store(in: &self.cancelBag)
+        
+        output.leftEyebrowBox
+            .sink(receiveValue: { [weak self] box in
+                guard let self else { return }
+                self.baseView.placeLeftEyebrow(on: box)
+            })
+            .store(in: &self.cancelBag)
+        
+        output.rightEyebrowBox
+            .sink(receiveValue: { [weak self] box in
+                guard let self else { return }
+                self.baseView.placeRightEyebrow(on: box)
+            })
+            .store(in: &self.cancelBag)
     }
 }
 

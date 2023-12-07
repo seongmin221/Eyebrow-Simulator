@@ -31,7 +31,7 @@ extension SimulatorService {
         guard let imageBuffer = CMSampleBufferGetImageBuffer(self.buffer) else { return }
         
         do {
-            try sequenceHandler.perform([request], on: imageBuffer, orientation: .leftMirrored)
+            try sequenceHandler.perform([request], on: imageBuffer, orientation: .downMirrored)
         }
         catch { print(error.localizedDescription) }
     }

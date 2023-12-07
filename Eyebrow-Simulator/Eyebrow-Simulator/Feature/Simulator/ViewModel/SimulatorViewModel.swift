@@ -9,6 +9,7 @@ import AVFoundation
 import Combine
 import CoreImage
 import Foundation
+import Vision
 
 final class SimulatorViewModel: ViewModelType {
     
@@ -18,13 +19,12 @@ final class SimulatorViewModel: ViewModelType {
     
     private let simulatorService: SimulatorService
     
-    private var previewImageBox = CGRect(
+    private var previewImageRect = CGRect(
         x: 0,
         y: SizeLiteral.Screen.height/2 - SizeLiteral.Screen.width * 2/3,
         width: SizeLiteral.Screen.width,
         height: SizeLiteral.Screen.width * 4/3
     )
-    
     private var boundingBox = CGRect()
     
     // MARK: - Input & Output
@@ -37,8 +37,10 @@ final class SimulatorViewModel: ViewModelType {
     struct Output {
         let originImage: AnyPublisher<CIImage, Never>
         let faceViewSize: AnyPublisher<CGRect, Never>
-        let leftEyebrowBox: AnyPublisher<[CGPoint], Never>
-        let rightEyebrowBox: AnyPublisher<[CGPoint], Never>
+        let leftEyebrowBox: AnyPublisher<CGRect, Never>
+        let rightEyebrowBox: AnyPublisher<CGRect, Never>
+//        let leftEyebrowBox: AnyPublisher<[CGPoint], Never>
+//        let rightEyebrowBox: AnyPublisher<[CGPoint], Never>
     }
     
     // MARK: - Initialize
@@ -55,7 +57,7 @@ final class SimulatorViewModel: ViewModelType {
                 guard let self,
                       let box = self.simulatorService.faceBoundingBox
                 else { return }
-                self.boundingBox = convertSize(box: box, in: previewImageBox)
+                self.boundingBox = convertSize(box: box, in: previewImageRect)
             })
             .store(in: &self.cancelBag)
     }
@@ -78,22 +80,47 @@ final class SimulatorViewModel: ViewModelType {
             .eraseToAnyPublisher()
         
         let leftEyebrowPos = input.viewWillAppear
-            .map { [weak self] _ -> [CGPoint] in
+            .map { [weak self] _ -> CGRect in
                 guard let self,
-                      let eyebrowPoints = self.simulatorService.eyebrowPos?.left
-                else { return [] }
-                return eyebrowPoints
+                      let eyebrowPoints = self.simulatorService.eyebrowPos?.right
+                else { return CGRect() }
+                
+                let convertedPoints = convertNormalizedPoints(eyebrowPoints)
+                return convertPointsToRect(convertedPoints)
             }
             .eraseToAnyPublisher()
         
         let rightEyebrowPos = input.viewWillAppear
-            .map { [weak self] _ -> [CGPoint] in
+            .map { [weak self] _ -> CGRect in
                 guard let self,
-                      let eyebrowPoints = self.simulatorService.eyebrowPos?.right
-                else { return [] }
-                return eyebrowPoints
+                      let eyebrowPoints = self.simulatorService.eyebrowPos?.left
+                else { return CGRect() }
+                let convertedPoints = convertNormalizedPoints(eyebrowPoints)
+                return convertPointsToRect(convertedPoints)
             }
             .eraseToAnyPublisher()
+        
+//        let leftEyebrowPos = input.viewWillAppear
+//            .map { [weak self] _ -> [CGPoint] in
+//                guard let self,
+//                      let eyebrowPoints = self.simulatorService.eyebrowPos?.left
+//                else { return [] }
+//                
+//                let convertedPoints = convertNormalizedPoints(eyebrowPoints)
+//                return convertedPoints
+//            }
+//            .eraseToAnyPublisher()
+//        
+//        let rightEyebrowPos = input.viewWillAppear
+//            .map { [weak self] _ -> [CGPoint] in
+//                guard let self,
+//                      let eyebrowPoints = self.simulatorService.eyebrowPos?.right
+//                else { return [] }
+//                
+//                let convertedPoints = convertNormalizedPoints(eyebrowPoints)
+//                return convertedPoints
+//            }
+//            .eraseToAnyPublisher()
         
         let output = Output(
             originImage: originImage,
@@ -118,6 +145,31 @@ extension SimulatorViewModel {
         )
         return CGRect(origin: convertedOrigin, size: convertedSize)
     }
+    
+    func convertNormalizedPoints(_ points: [CGPoint]) -> [CGPoint] {
+        let convertedPoints = points
+            .map {
+                let width = Int(self.boundingBox.width)
+                let height = Int(self.boundingBox.height)
+                return VNImagePointForNormalizedPoint($0, width, height)
+            }
+            .map {
+                let origin = boundingBox.origin
+                return CGPoint(x: $0.x + origin.x, y: $0.y + origin.y)
+            }
+        
+        return convertedPoints
+    }
+    
+    func convertPointsToRect(_ points: [CGPoint]) -> CGRect {
+        let minX = points.map({ $0.x }).min()!
+        let maxX = points.map({ $0.x }).max()!
+        let minY = points.map({ $0.y }).min()!
+        let maxY = points.map({ $0.y }).max()!
+        return CGRect(x: minX, y: minY, width: maxX-minX, height: maxY-minY)
+    }
+    
+    
 }
 
 

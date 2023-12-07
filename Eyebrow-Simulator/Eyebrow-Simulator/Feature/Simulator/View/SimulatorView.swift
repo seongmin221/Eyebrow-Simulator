@@ -21,7 +21,6 @@ final class SimulatorView: UIView {
     private let boundingBoxView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.makeBorder(.red, 2)
         return view
     }()
     
@@ -29,7 +28,6 @@ final class SimulatorView: UIView {
         let view = UIImageView()
         view.backgroundColor = .clear
         view.contentMode = .scaleToFill
-        view.makeBorder(.red, 2)
         return view
     }()
     
@@ -37,7 +35,6 @@ final class SimulatorView: UIView {
         let view = UIImageView()
         view.backgroundColor = .clear
         view.contentMode = .scaleToFill
-        view.makeBorder(.red, 2)
         return view
     }()
     
@@ -135,8 +132,6 @@ extension SimulatorView {
         self.leftEyebrowView.image = eyebrow.image
         self.rightEyebrowView.image = eyebrow.image.withHorizontallyFlippedOrientation()
     }
-    
-    
 }
 
 // MARK: - CollectionView Layout
