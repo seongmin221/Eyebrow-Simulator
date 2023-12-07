@@ -60,6 +60,7 @@ final class CameraResultView: ViewType {
     init() {
         super.init(frame: .zero)
         self.setLayout()
+        self.configUI()
     }
     
     @available(*, unavailable)
@@ -96,6 +97,10 @@ final class CameraResultView: ViewType {
             $0.trailing.equalToSuperview().inset(40)
             $0.size.equalTo(50)
         }
+    }
+    
+    private func configUI() {
+        self.backgroundColor = .menuWhite
     }
 }
 

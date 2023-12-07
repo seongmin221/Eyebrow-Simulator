@@ -20,6 +20,7 @@
 		3E4EA4B92B10DDE500AA6B81 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4EA4B82B10DDE500AA6B81 /* LoadingView.swift */; };
 		3E61DC852AD9724200325730 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61DC842AD9724200325730 /* CameraService.swift */; };
 		3E95FFDD2B183B2E0082BFDB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95FFDC2B183B2E0082BFDB /* HapticManager.swift */; };
+		3E9BB4332B2176EE00529F81 /* CGPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BB4322B2176EE00529F81 /* CGPoint+.swift */; };
 		3ED85E662AE4B36500671826 /* SizeLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED85E652AE4B36500671826 /* SizeLiteral.swift */; };
 		3EFB49C22AD05A04006E3846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C12AD05A04006E3846 /* AppDelegate.swift */; };
 		3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB49C32AD05A04006E3846 /* SceneDelegate.swift */; };
@@ -77,6 +78,7 @@
 		3E4EA4B82B10DDE500AA6B81 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3E61DC842AD9724200325730 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		3E95FFDC2B183B2E0082BFDB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		3E9BB4322B2176EE00529F81 /* CGPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+.swift"; sourceTree = "<group>"; };
 		3ED85E652AE4B36500671826 /* SizeLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeLiteral.swift; sourceTree = "<group>"; };
 		3EFB49BE2AD05A04006E3846 /* Eyebrow-Simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eyebrow-Simulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFB49C12AD05A04006E3846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				3EFB4A1B2AD05BFF006E3846 /* UIView+.swift */,
 				3E1C96682ADBC1AD00FCF3AB /* UIViewController+.swift */,
+				3E9BB4322B2176EE00529F81 /* CGPoint+.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				3EFB4A122AD05B95006E3846 /* SimulatorViewModel.swift in Sources */,
 				3EFB49C42AD05A04006E3846 /* SceneDelegate.swift in Sources */,
 				3EFB4A062AD05B52006E3846 /* CameraView.swift in Sources */,
+				3E9BB4332B2176EE00529F81 /* CGPoint+.swift in Sources */,
 				3E1C96692ADBC1AD00FCF3AB /* UIViewController+.swift in Sources */,
 				3EFB4A0E2AD05B8C006E3846 /* SimulatorViewController.swift in Sources */,
 				3E3310BE2AD7CE2F002BEC99 /* UIViewController+Combine.swift in Sources */,

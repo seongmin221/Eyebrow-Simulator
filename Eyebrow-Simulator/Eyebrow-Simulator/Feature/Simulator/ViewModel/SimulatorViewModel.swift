@@ -168,16 +168,4 @@ extension SimulatorViewModel {
         let maxY = points.map({ $0.y }).max()!
         return CGRect(x: minX, y: minY, width: maxX-minX, height: maxY-minY)
     }
-    
-    
-}
-
-
-extension CGPoint {
-    func absolutePoint(in rect: CGRect) -> CGPoint {
-        return CGPoint(
-            x: x * rect.size.width + rect.origin.x,
-            y: y * rect.size.height + rect.origin.y
-        )
-    }
 }
