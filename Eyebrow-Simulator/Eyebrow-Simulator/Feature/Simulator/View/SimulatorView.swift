@@ -10,15 +10,6 @@ import UIKit
 
 final class SimulatorView: UIView {
     
-    // MARK: - Properties
-    
-//    var selectedIndexPaths: AnyPublisher<[IndexPath]?, Never> {
-//        return self.eyebrowCollectionView
-//            .publisher(for: \.indexPathsForSelectedItems)
-//            .print("V: selectedIndexPaths")
-//            .eraseToAnyPublisher()
-//    }
-    
     // MARK: - UI Properties
     
     private let previewImageView: UIImageView = {
@@ -27,10 +18,18 @@ final class SimulatorView: UIView {
         return imageView
     }()
     
+    private let boundingBoxView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.makeBorder(.red, 2)
+        return view
+    }()
+    
     private let leftEyebrowView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .clear
         view.contentMode = .scaleToFill
+        view.makeBorder(.red, 2)
         return view
     }()
     
@@ -38,6 +37,7 @@ final class SimulatorView: UIView {
         let view = UIImageView()
         view.backgroundColor = .clear
         view.contentMode = .scaleToFill
+        view.makeBorder(.red, 2)
         return view
     }()
     
@@ -112,18 +112,31 @@ final class SimulatorView: UIView {
 // MARK: - Simulator
 
 extension SimulatorView {
-    func placeEyebrowView(left leftFrame: CGRect, right rightFrame: CGRect) {
+    func configureSimulationImage(with photo: UIImage) {
+        self.previewImageView.image = photo
+    }
+    
+    func placeBoundingBoxView(on frame: CGRect) {
+        self.addSubview(boundingBoxView)
+        self.boundingBoxView.frame = frame
+    }
+    
+    func placeLeftEyebrow(on box: CGRect) {
         self.addSubview(leftEyebrowView)
-        self.leftEyebrowView.frame = leftFrame
-        
+        self.leftEyebrowView.frame = box
+    }
+    
+    func placeRightEyebrow(on box: CGRect) {
         self.addSubview(rightEyebrowView)
-        self.rightEyebrowView.frame = rightFrame
+        self.rightEyebrowView.frame = box
     }
     
     func configureEyebrow(to eyebrow: EyebrowModel) {
         self.leftEyebrowView.image = eyebrow.image
         self.rightEyebrowView.image = eyebrow.image.withHorizontallyFlippedOrientation()
     }
+    
+    
 }
 
 // MARK: - CollectionView Layout
