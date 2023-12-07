@@ -5,6 +5,7 @@
 //  Created by 이성민 on 10/7/23.
 //
 
+import AVFoundation
 import Combine
 import UIKit
 
@@ -71,16 +72,17 @@ final class CameraResultViewController: ViewControllerType {
         let output = transformedOutput()
         
         output.takenPhoto
-            .sink(receiveValue: { [weak self] takenPhoto in
+            .sink(receiveValue: { [weak self] ciImage in
                 guard let self = self else { return }
-                self.baseView.configurePreviewImage(with: takenPhoto)
+                let photo = UIImage(ciImage: ciImage)
+                self.baseView.configurePreviewImage(with: photo)
             })
             .store(in: &self.cancelBag)
         
         output.chosenPhoto
-            .sink(receiveValue: { [weak self] chosenPhoto in
-                guard let self = self else { return }
-                self.pushToSimulator(with: chosenPhoto)
+            .sink(receiveValue: { [weak self] buffer in
+                guard let self, let buffer else { return }
+                self.pushToSimulator(buffer: buffer)
             })
             .store(in: &self.cancelBag)
     }
@@ -88,7 +90,10 @@ final class CameraResultViewController: ViewControllerType {
 }
 
 extension CameraResultViewController {
-    private func pushToSimulator(with image: UIImage) {
-        // TODO: navigate to simulator
+    private func pushToSimulator(buffer: CMSampleBuffer) {
+        let service = SimulatorService(buffer: buffer)
+        let viewModel = SimulatorViewModel(service: service)
+        let viewController = SimulatorViewController(viewModel: viewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

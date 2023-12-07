@@ -5,14 +5,16 @@
 //  Created by 이성민 on 10/7/23.
 //
 
+import AVFoundation
 import Combine
-import UIKit
+import CoreImage
 
 final class CameraResultViewModel: ViewModelType {
     
     // MARK: - Properties
     
-    private var imageResult: UIImage
+    private var imageResult: CIImage
+    private var imageBuffer: CMSampleBuffer
     
     // MARK: - Input & Output
     
@@ -23,30 +25,31 @@ final class CameraResultViewModel: ViewModelType {
     }
     
     struct Output {
-        let takenPhoto: AnyPublisher<UIImage, Never>
-        let chosenPhoto: AnyPublisher<UIImage, Never>
+        let takenPhoto: AnyPublisher<CIImage, Never>
+        let chosenPhoto: AnyPublisher<CMSampleBuffer?, Never>
     }
     
     // MARK: - Initialize
     
-    init(image: UIImage) {
+    init(image: CIImage, buffer: CMSampleBuffer) {
         self.imageResult = image
+        self.imageBuffer = buffer
     }
     
     // MARK: - Transform
     
     func transform(input: Input) -> Output {
         let takenPhoto = input.viewDidLoad
-            .map { [weak self] _ -> UIImage in
-                guard let self = self else { return UIImage() }
+            .map { [weak self] _ -> CIImage in
+                guard let self = self else { return CIImage() }
                 return self.imageResult
             }
             .eraseToAnyPublisher()
         
         let chosenPhoto = input.continueTrigger
-            .map { [weak self] _ -> UIImage in
-                guard let self = self else { return UIImage() }
-                return self.imageResult
+            .map { [weak self] _ -> CMSampleBuffer? in
+                guard let self = self else { return nil }
+                return self.imageBuffer
             }
             .eraseToAnyPublisher()
         
