@@ -16,6 +16,7 @@ final class CameraService: NSObject {
     
     var hasTakenPhoto: Bool = false
     var takenPhoto: CIImage?
+    var cmBuffer: CMSampleBuffer?
 }
 
 // MARK: - Setting
@@ -99,8 +100,6 @@ extension CameraService: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         self.takenPhoto = CIImage(cvImageBuffer: cvBuffer)
         self.hasTakenPhoto = false
-        
-        do { try sampleBuffer.invalidate() }
-        catch { print("buffer cannot invalidate") }
+        self.cmBuffer = sampleBuffer
     }
 }

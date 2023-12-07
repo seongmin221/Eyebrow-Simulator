@@ -10,21 +10,18 @@ import UIKit
 
 final class SimulatorView: UIView {
     
-    // MARK: - Properties
-    
-//    var selectedIndexPaths: AnyPublisher<[IndexPath]?, Never> {
-//        return self.eyebrowCollectionView
-//            .publisher(for: \.indexPathsForSelectedItems)
-//            .print("V: selectedIndexPaths")
-//            .eraseToAnyPublisher()
-//    }
-    
     // MARK: - UI Properties
     
     private let previewImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private let boundingBoxView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }()
     
     private let leftEyebrowView: UIImageView = {
@@ -48,14 +45,6 @@ final class SimulatorView: UIView {
     }()
     
     let eyebrowCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
-    
-    private let applyButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("적용하기", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 22)
-        return button
-    }()
     
     // MARK: - Life Cycle
     
@@ -92,12 +81,6 @@ final class SimulatorView: UIView {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(55)
         }
-        
-        bottomView.addSubview(self.applyButton)
-        applyButton.snp.makeConstraints {
-            $0.top.equalTo(self.eyebrowCollectionView.snp.bottom).offset(12)
-            $0.centerX.equalToSuperview()
-        }
     }
     
     private func configUI() {
@@ -112,12 +95,23 @@ final class SimulatorView: UIView {
 // MARK: - Simulator
 
 extension SimulatorView {
-    func placeEyebrowView(left leftFrame: CGRect, right rightFrame: CGRect) {
+    func configureSimulationImage(with photo: UIImage) {
+        self.previewImageView.image = photo
+    }
+    
+    func placeBoundingBoxView(on frame: CGRect) {
+        self.addSubview(boundingBoxView)
+        self.boundingBoxView.frame = frame
+    }
+    
+    func placeLeftEyebrow(on box: CGRect) {
         self.addSubview(leftEyebrowView)
-        self.leftEyebrowView.frame = leftFrame
-        
+        self.leftEyebrowView.frame = box
+    }
+    
+    func placeRightEyebrow(on box: CGRect) {
         self.addSubview(rightEyebrowView)
-        self.rightEyebrowView.frame = rightFrame
+        self.rightEyebrowView.frame = box
     }
     
     func configureEyebrow(to eyebrow: EyebrowModel) {

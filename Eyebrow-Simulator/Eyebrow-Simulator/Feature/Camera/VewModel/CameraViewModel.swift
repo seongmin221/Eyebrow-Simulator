@@ -39,10 +39,10 @@ final class CameraViewModel: ViewModelType {
     
     struct Output {
         let photoPreviewLayer: AnyPublisher<PreviewLayer, Never>
-        let photoResult: AnyPublisher<CIImage, Never>
+        let photoResult: AnyPublisher<(image: CIImage?, buffer: CMSampleBuffer?), Never>
         
         init(photoPreviewLayer: AnyPublisher<PreviewLayer, Never>,
-             photoResult: AnyPublisher<CIImage, Never>) {
+             photoResult: AnyPublisher<(image: CIImage?, buffer: CMSampleBuffer?), Never>) {
             self.photoPreviewLayer = photoPreviewLayer
             self.photoResult = photoResult
         }
@@ -86,10 +86,12 @@ final class CameraViewModel: ViewModelType {
             .eraseToAnyPublisher()
             
         let photoResult = input.photoTrigger
-            .map { [weak self] _ -> CIImage in
-                self?.cameraService.takePhoto()
-                guard let ciImage = self?.cameraService.takenPhoto else { return CIImage() }
-                return ciImage
+            .map { [weak self] _ -> (image: CIImage?, buffer: CMSampleBuffer?) in
+                guard let self else { return (nil, nil) }
+                self.cameraService.takePhoto()
+                let ciImage = self.cameraService.takenPhoto
+                let buffer = self.cameraService.cmBuffer
+                return (ciImage, buffer)
             }
             .eraseToAnyPublisher()
         

@@ -64,7 +64,8 @@ final class SimulatorViewController: ViewControllerType {
     
     private func transformedOutput() -> ViewModel.Output {
         let input = ViewModel.Input(
-            viewDidLoad: self.viewDidLoadPublisher
+            viewDidLoad: self.viewDidLoadPublisher,
+            viewWillAppear: self.viewWillAppearPublisher
         )
         return self.viewModel.transform(input: input)
     }
@@ -72,14 +73,46 @@ final class SimulatorViewController: ViewControllerType {
     func bindViewModel() {
         let output = transformedOutput()
         
-        output.eyebrowPosition
-            .sink(receiveValue: { [weak self] _ in
-                // FIXME: eyebrowposition 받아와지면 해당 값으로 적용
-                guard let self = self else { return }
-                self.baseView.placeEyebrowView(
-                    left: .init(x: 20, y: 100, width: 50, height: 25),
-                    right: .init(x: 100, y: 100, width: 50, height: 25)
-                )
+        output.originImage
+            .sink(receiveValue: { [weak self] ciImage in
+                guard let self else { return }
+                let image = UIImage(ciImage: ciImage)
+                self.baseView.configureSimulationImage(with: image)
+            })
+            .store(in: &self.cancelBag)
+        
+        output.faceViewSize
+            .sink(receiveValue: { [weak self] size in
+                guard let self else { return }
+                self.baseView.placeBoundingBoxView(on: size)
+            })
+            .store(in: &self.cancelBag)
+        
+//        output.leftEyebrowBox
+//            .sink(receiveValue: { [weak self] points in
+//                guard let self else { return }
+//                self.baseView.addPoints(points)
+//            })
+//            .store(in: &self.cancelBag)
+//        
+//        output.rightEyebrowBox
+//            .sink(receiveValue: { [weak self] points in
+//                guard let self else { return }
+//                self.baseView.addPoints(points)
+//            })
+//            .store(in: &self.cancelBag)
+        
+        output.leftEyebrowBox
+            .sink(receiveValue: { [weak self] box in
+                guard let self else { return }
+                self.baseView.placeLeftEyebrow(on: box)
+            })
+            .store(in: &self.cancelBag)
+        
+        output.rightEyebrowBox
+            .sink(receiveValue: { [weak self] box in
+                guard let self else { return }
+                self.baseView.placeRightEyebrow(on: box)
             })
             .store(in: &self.cancelBag)
     }

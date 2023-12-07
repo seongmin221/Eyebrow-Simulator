@@ -45,6 +45,7 @@ final class CameraView: ViewType {
     init() {
         super.init(frame: .zero)
         self.setLayout()
+        self.configUI()
     }
     
     @available(*, unavailable)
@@ -71,6 +72,10 @@ final class CameraView: ViewType {
             $0.centerX.equalToSuperview()
             $0.size.equalTo(80)
         }
+    }
+    
+    private func configUI() {
+        self.backgroundColor = .menuWhite
     }
 }
 

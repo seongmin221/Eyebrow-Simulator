@@ -5,6 +5,7 @@
 //  Created by 이성민 on 10/7/23.
 //
 
+import AVFoundation
 import Combine
 import UIKit
 
@@ -64,17 +65,20 @@ final class CameraViewController: ViewControllerType {
         
         output.photoResult
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [self] photo in
-                self.pushToResult(with: photo)
+            .sink(receiveValue: { [weak self] data in
+                guard let self,
+                      let image = data.image,
+                      let buffer = data.buffer
+                else { return }
+                self.pushToResult(image: image, buffer: buffer)
             })
             .store(in: &self.cancelBag)
     }
 }
 
 extension CameraViewController {
-    private func pushToResult(with ciImage: CIImage) {
-        let image = UIImage(ciImage: ciImage)
-        let viewModel = CameraResultViewModel(image: image)
+    private func pushToResult(image: CIImage, buffer: CMSampleBuffer) {
+        let viewModel = CameraResultViewModel(image: image, buffer: buffer)
         let viewController = CameraResultViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
